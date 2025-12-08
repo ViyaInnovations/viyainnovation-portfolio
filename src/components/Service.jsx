@@ -193,7 +193,7 @@ export default function Service() {
                 <p className="text-sm opacity-90 leading-relaxed">
                   {service.description}
                 </p>
-                {/* Optional: Add a "Learn More" link here with animation */}
+                {/* Optional: Add a "Learn More" link here with animations */}
                 <motion.a 
                     href={`#${service.name.toLowerCase().replace(/\s/g, '-')}`} // Example link
                     className="mt-4 inline-flex items-center text-sm font-semibold text-indigo-300 hover:text-indigo-100 transition duration-200"
