@@ -1,44 +1,144 @@
-import React from 'react'
+import React from 'react';
+import { motion } from "framer-motion";
+import {
+  Sparkles,
+  ArrowRight,
+  Target, // Discovery/Targeting
+  Feather, // Strategy/Lightweight
+  PenTool, // Design/Craft
+  Code, // Build/Code
+  Rocket, // Launch/Grow
+} from "lucide-react";
+
+// --- Framer Motion Variants ---
+const sectionVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.8,
+      ease: "easeOut",
+      when: "beforeChildren",
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, x: -20 },
+  visible: { 
+    opacity: 1, 
+    x: 0, 
+    transition: { type: "spring", stiffness: 80, damping: 12 } 
+  },
+};
+
+// --- Process Data for Stepped Flow ---
+const processSteps = [
+  { name: "Discovery", icon: Target, desc: "Deep diving into market, audience, and business goals." },
+  { name: "Strategy", icon: Feather, desc: "Defining the product roadmap and brand positioning." },
+  { name: "Design", icon: PenTool, desc: "Crafting elegant UI/UX and visual prototypes." },
+  { name: "Build", icon: Code, desc: "Engineering the platform using scalable, modern architecture." },
+  { name: "Growth", icon: Rocket, desc: "Launching, monitoring performance, and optimizing for scale." },
+];
 
 
 export default function About() {
   return (
+    <motion.section 
+      id="about" 
+      className="bg-white py-24 lg:py-36"
+      variants={sectionVariants}
+      initial="hidden"
+      whileInView="visible" // Animate when section comes into view
+      viewport={{ once: true, amount: 0.1 }}
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Main Header Block */}
+        <div className="text-center max-w-4xl mx-auto mb-16">
+          <motion.h2 
+            className="text-indigo-600 text-sm font-semibold uppercase tracking-widest mb-2"
+            variants={itemVariants}
+          >
+            Our Methodology
+          </motion.h2>
+          <motion.h3 
+            className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight"
+            variants={itemVariants}
+          >
+            A Strategic, Rigorous Path to Digital Excellence
+          </motion.h3>
+        </div>
 
-<>
-    <section id="about" className="bg-indigo-50 py-16">
-          <div className="max-w-6xl mx-auto px-6 grid gap-8 md:grid-cols-2 items-center">
-            <div>
-              <h3 className="text-2xl font-bold">How we work</h3>
-              <p className="mt-3 text-slate-700">We pair strategic thinking with rigorous execution. Typical engagement: discovery → strategy → design → build → launch → grow.</p>
-
-              <ul className="mt-6 space-y-3 text-slate-600">
-                <li>• Discovery workshops with stakeholders</li>
-                <li>• Rapid design sprints & prototypes</li>
-                <li>• Production-grade development & testing</li>
-                <li>• Data-driven marketing & optimization</li>
-              </ul>
-            </div>
-
-            <div className="rounded-lg overflow-hidden bg-white p-6 shadow">
-              <h4 className="font-semibold">Engagements are flexible</h4>
-              <p className="mt-2 text-slate-600">From one-off campaigns to long-term partnerships — we adapt to your team's needs.</p>
-
-              <div className="mt-6 grid grid-cols-3 gap-4 text-center text-sm text-slate-600">
-                <div>
-                  <div className="font-bold">Design</div>
-                  <div className="mt-1">Branding • UI</div>
+        {/* Process Flow Grid */}
+        <div className="mt-16 grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-5 lg:gap-8">
+          {processSteps.map((step, index) => (
+            <motion.div 
+              key={step.name} 
+              variants={itemVariants}
+              whileHover={{ scale: 1.05, boxShadow: "0 10px 30px rgba(0, 0, 0, 0.05)" }}
+              className="relative p-6 rounded-xl bg-gray-50 border border-gray-100 transition duration-300"
+            >
+              {/* Step Number and Icon */}
+              <div className="flex items-center justify-between mb-4">
+                <div className="text-3xl font-extrabold text-indigo-600/50">
+                  0{index + 1}
                 </div>
-                <div>
-                  <div className="font-bold">Build</div>
-                  <div className="mt-1">Web • Mobile • API</div>
-                </div>
-                <div>
-                  <div className="font-bold">Grow</div>
-                  <div className="mt-1">MKT • SEO • Ads</div>
+                <div className="w-10 h-10 rounded-full bg-indigo-50 flex items-center justify-center border border-indigo-100">
+                  <step.icon size={20} className="text-indigo-600" />
                 </div>
               </div>
+
+              {/* Step Title and Description */}
+              <h4 className="font-bold text-lg mb-2 text-gray-900">
+                {step.name}
+              </h4>
+              <p className="text-sm text-gray-600 min-h-[60px]"> {/* Min-height ensures alignment */}
+                {step.desc}
+              </p>
+              
+              {/* Connector Arrow (Hidden on the last step) */}
+              {index < processSteps.length - 1 && (
+                <div className="absolute -right-12 top-1/2 hidden lg:block transform -translate-y-1/2">
+                    <ArrowRight size={24} className="text-gray-300" />
+                </div>
+              )}
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Flexible Engagement Block (Below the Process Flow) */}
+        <div className="mt-20 p-8 md:p-12 bg-indigo-600 text-white rounded-2xl shadow-xl max-w-4xl mx-auto">
+            <div className="grid md:grid-cols-3 gap-8 items-center">
+                <div className="md:col-span-2">
+                    <motion.h4 
+                        variants={itemVariants}
+                        className="font-extrabold text-3xl mb-2"
+                    >
+                        Partnerships built for Flexibility
+                    </motion.h4>
+                    <motion.p 
+                        variants={itemVariants}
+                        className="text-indigo-100 text-lg"
+                    >
+                        Our engagement models—from project-based sprints to dedicated long-term teams—are tailored to integrate seamlessly with your operational needs.
+                    </motion.p>
+                </div>
+                <div className="md:col-span-1 text-right">
+                    <motion.a 
+                        variants={itemVariants}
+                        href="#contact" 
+                        className="inline-flex items-center justify-center gap-2 bg-white text-indigo-700 px-6 py-3 rounded-xl text-base font-semibold transition duration-200 hover:bg-indigo-50 hover:shadow-lg"
+                    >
+                        Discuss Your Project
+                    </motion.a>
+                </div>
             </div>
-          </div>
-        </section>
-        </>)
+        </div>
+
+      </div>
+    </motion.section>
+  );
 }
