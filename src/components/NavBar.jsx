@@ -4,8 +4,8 @@ import {
   Menu,
   X,
   ChevronDown,
-  Globe, // Added for potential future language switcher
-  Send, // Used for 'Get a Quote' CTA
+  Globe, 
+  Send,
 } from "lucide-react";
 
 const navLinks = [
@@ -14,6 +14,11 @@ const navLinks = [
   { name: "About", href: "#about" },
   { name: "Contact", href: "#contact" },
 ];
+
+// --- Custom Color Definitions ---
+const NAVY_BLUE = "#0b132b";
+const NAVY_HOVER = "#1e293b"; // A slightly lighter slate/blue for hover feedback
+const NAVY_SHADOW = "0 4px 15px rgba(11, 19, 43, 0.4)"; // Shadow based on the primary color
 
 export default function AdvancedNavBar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -31,7 +36,7 @@ export default function AdvancedNavBar() {
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
-  // Framer Motion Variants for animations
+  // Framer Motion Variants for animations (no change needed here)
   const menuVariants = {
     hidden: { opacity: 0, x: "100%" },
     visible: { 
@@ -75,10 +80,12 @@ export default function AdvancedNavBar() {
           
           {/* Logo Section */}
           <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-full bg-indigo-600 flex items-center justify-center text-white font-bold text-lg shadow-md">VI</div>
+            {/* Custom Navy Logo Accent */}
+            <div className="w-9 h-9 rounded-full text-white font-bold text-lg shadow-md" style={{ backgroundColor: NAVY_BLUE }}>VI</div>
             <div>
               <h1 className="text-xl font-extrabold text-gray-900 tracking-tight">ViyaInnovations</h1>
-              <p className="text-xs text-indigo-600 font-medium">Branding • Web • Motion</p>
+              {/* Subtle Navy accent for tagline */}
+              <p className="text-xs font-medium" style={{ color: NAVY_BLUE }}>Branding • Web • Motion</p>
             </div>
           </div>
 
@@ -88,20 +95,28 @@ export default function AdvancedNavBar() {
               <a 
                 key={index} 
                 href={link.href}
-                className="hover:text-indigo-600 transition duration-150 relative group"
+                // Custom Navy Hover Text
+                className="transition duration-150 relative group"
+                style={{ "--hover-color": NAVY_BLUE }} // Using CSS variable for hover text color
+                onMouseEnter={e => e.currentTarget.style.color = NAVY_BLUE}
+                onMouseLeave={e => e.currentTarget.style.color = ''}
               >
                 {link.name}
-                {/* Subtle underline hover effect */}
-                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-indigo-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+                {/* Custom Navy Underline Hover Effect */}
+                <span className="absolute bottom-0 left-0 w-full h-0.5 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" style={{ backgroundColor: NAVY_BLUE }}></span>
               </a>
             ))}
             
-            {/* CTA Button - High-Class Look */}
+            {/* CTA Button - High-Class Custom Navy Look */}
             <motion.a 
-              whileHover={{ scale: 1.05, boxShadow: "0 4px 15px rgba(99, 102, 241, 0.4)" }}
+              whileHover={{ scale: 1.05, boxShadow: NAVY_SHADOW }} // Custom Navy Shadow
               whileTap={{ scale: 0.95 }}
               href="#quote"
-              className="ml-4 inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full bg-indigo-600 text-white text-sm font-semibold shadow-lg hover:bg-indigo-700 transition duration-200 ease-in-out"
+              // Custom Navy Button and Hover Color
+              className="ml-4 inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full text-white text-sm font-semibold shadow-lg transition duration-200 ease-in-out"
+              style={{ backgroundColor: NAVY_BLUE }}
+              onMouseEnter={e => e.currentTarget.style.backgroundColor = NAVY_HOVER}
+              onMouseLeave={e => e.currentTarget.style.backgroundColor = NAVY_BLUE}
             >
               <Send size={16} />
               Get a Quote
@@ -121,7 +136,7 @@ export default function AdvancedNavBar() {
         </div>
       </motion.header>
 
-      {/* Mobile Full-Screen Drawer (Advanced UI/UX) */}
+      {/* Mobile Full-Screen Drawer */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -141,6 +156,7 @@ export default function AdvancedNavBar() {
               </button>
             </div>
 
+            {/* Mobile Links */}
             <nav className="flex flex-col gap-6 text-2xl font-bold text-gray-800">
               {navLinks.map((link, index) => (
                 <motion.a
@@ -150,8 +166,12 @@ export default function AdvancedNavBar() {
                   variants={linkVariants}
                   initial="hidden"
                   animate="visible"
-                  onClick={toggleMenu} // Close menu on link click
-                  className="py-2 hover:text-indigo-600 transition duration-150 border-b border-gray-100 last:border-b-0"
+                  onClick={toggleMenu} 
+                  // Custom Navy Hover Text
+                  className="py-2 transition duration-150 border-b border-gray-100 last:border-b-0"
+                  style={{ "--hover-color": NAVY_BLUE }} // Using CSS variable for hover text color
+                  onMouseEnter={e => e.currentTarget.style.color = NAVY_BLUE}
+                  onMouseLeave={e => e.currentTarget.style.color = ''}
                 >
                   {link.name}
                 </motion.a>
@@ -165,7 +185,11 @@ export default function AdvancedNavBar() {
               transition={{ delay: navLinks.length * 0.1 + 0.2 }}
               href="#quote"
               onClick={toggleMenu}
-              className="mt-10 inline-flex items-center justify-center gap-2 w-full px-6 py-4 rounded-xl bg-indigo-600 text-white text-lg font-semibold shadow-xl hover:bg-indigo-700 transition duration-200 ease-in-out"
+              // Custom Navy Button and Hover Color
+              className="mt-10 inline-flex items-center justify-center gap-2 w-full px-6 py-4 rounded-xl text-white text-lg font-semibold shadow-xl transition duration-200 ease-in-out"
+              style={{ backgroundColor: NAVY_BLUE }}
+              onMouseEnter={e => e.currentTarget.style.backgroundColor = NAVY_HOVER}
+              onMouseLeave={e => e.currentTarget.style.backgroundColor = NAVY_BLUE}
             >
               <Send size={20} />
               Get a Quote Now
