@@ -5,16 +5,16 @@
     "title": "Global E-commerce Platform Launch",
     "focus": "Full Stack Web Development",
     "result": "45% increase in conversion rate in 3 months.",
-    "imagePath": "/portfolio/ascend-ecommerce-main.jpg",
-    "linkSlug": "ascend-ecommerce" 
+    "imagePath": "/work/1.png",
+    "linkSlug": "ascend-ecommerce"
   },
   {
     "id": 2,
     "client": "FuturePulse Analytics",
     "title": "Data Visualization & Dashboard UI/UX",
     "focus": "Strategic Design & Branding",
-    "result": "Reduced user support tickets by 60% due to clear interface.",
-    "imagePath": "/portfolio/futurepulse-dashboard-main.png",
+    "result": "Reduced user support tickets by 60%.",
+    "imagePath": "/work/1.png",
     "linkSlug": "futurepulse-dashboard"
   },
   {
@@ -22,8 +22,17 @@
     "client": "Veloce Motors",
     "title": "Automotive Marketing Video Campaign",
     "focus": "Motion Graphics & Advertising",
-    "result": "Generated over 5 million views across targeted platforms.",
-    "imagePath": "/portfolio/veloce-motors-video-main.jpg",
+    "result": "Generated over 5 million views across platforms.",
+    "imagePath": "/work/1.png",
     "linkSlug": "veloce-video-campaign"
+  },
+  {
+    "id": 4,
+    "client": "Envision Health",
+    "title": "Patient Portal UX/UI Redesign",
+    "focus": "UX Design & System Integration",
+    "result": "Improved patient satisfaction scores by 25%.",
+    "imagePath": "/work/1.png",
+    "linkSlug": "envision-health-portal"
   }
 ]

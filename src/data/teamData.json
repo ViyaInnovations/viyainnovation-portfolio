@@ -1,4 +1,3 @@
-
 [
     {
         "id": 1,
@@ -6,7 +5,7 @@
         "title": "Chief Digital Strategist",
         "specialty": "Strategy & Consulting",
         "bio": "Drives enterprise digital transformation, focusing on measurable ROI and long-term tech roadmap planning.",
-        "imagePath": "https://images.unsplash.com/photo-1542157549-ecb18361719b?q=80&w=300&auto=format&fit=facearea",
+        "imagePath": "/team/2.jpeg",
         "linkedin": "https://linkedin.com/in/alexkinsley"
     },
     {
@@ -15,7 +14,7 @@
         "title": "Lead Full-Stack Architect",
         "specialty": "Web & Application Development",
         "bio": "Specializes in scalable, high-performance web applications using React, TypeScript, and modern headless architectures.",
-        "imagePath": "https://images.unsplash.com/photo-1573497495202-5e4c622b1156?q=80&w=300&auto=format&fit=facearea",
+        "imagePath": "/team/2.jpeg",
         "linkedin": "https://linkedin.com/in/mayasingh"
     },
     {
@@ -24,7 +23,7 @@
         "title": "Senior Backend Engineer",
         "specialty": "Backend & DevOps",
         "bio": "Expert in NestJS, TypeORM, and secure infrastructure. Dedicated to building robust, maintainable APIs and database systems.",
-        "imagePath": "https://images.unsplash.com/photo-1560250097-fb5c4793082f?q=80&w=300&auto=format&fit=facearea",
+        "imagePath": "/team/2.jpeg",
         "linkedin": "https://linkedin.com/in/bencarter"
     },
     {
@@ -33,7 +32,7 @@
         "title": "Head of Product Design (UX/UI)",
         "specialty": "UI/UX & Creative",
         "bio": "Focuses on user-centric design principles that balance innovative aesthetics with real-world business needs and accessibility.",
-        "imagePath": "https://images.unsplash.com/photo-1494790108377-be9c29b29329?q=80&w=300&auto=format&fit=facearea",
+        "imagePath": "/team/2.jpeg",
         "linkedin": "https://linkedin.com/in/chloelim"
     },
     {
@@ -42,7 +41,7 @@
         "title": "Senior Project Manager (PMP)",
         "specialty": "Project Management",
         "bio": "Ensures timely delivery and clear communication across complex projects using Agile methodologies and strict quality assurance.",
-        "imagePath": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=300&auto=format&fit=facearea",
+        "imagePath": "/team/2.jpeg",
         "linkedin": "https://linkedin.com/in/davidramirez"
     }
 ]
