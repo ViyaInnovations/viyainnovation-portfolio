@@ -1,14 +1,19 @@
 import React from 'react';
 import { motion } from "framer-motion";
 import {
-  Mail,
-  Phone,
-  ArrowRight,
-  MapPin,
-  Twitter,
-  Linkedin,
-  Instagram,
+    Mail,
+    Phone,
+    ArrowRight,
+    MapPin,
+    Twitter,
+    Linkedin,
+    Instagram,
 } from "lucide-react";
+
+// --- Custom Color Definitions (Ensuring high contrast on dark background) ---
+const ACCENT_COLOR = "#00bcd4"; // A high-contrast Cyan/Teal accent
+const NAVY_BLUE = "#0b132b"; // Your dark brand color
+const GRAY_TEXT = "#a0aec0"; // Light gray text for readability
 
 // Simple variants for subtle entrance
 const footerVariants = {
@@ -23,121 +28,180 @@ const footerVariants = {
 // Data for quick links
 const navLinks = [
     { name: "Services", href: "#services" },
+    { name: "Meet The Team", href: "#our-team" }, 
     { name: "Selected Work", href: "#work" },
     { name: "Our Methodology", href: "#about" },
     { name: "Careers", href: "#careers" },
 ];
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear();
+    const currentYear = new Date().getFullYear();
 
-  return (
-    <motion.footer 
-        className="bg-gray-900 text-white border-t border-gray-700"
-        variants={footerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.1 }}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
-        
-        {/* Top Section: Logo, Links, and Contact */}
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-12 gap-10">
-            
-            {/* Column 1: Logo and Brand Message (Span 4 columns on large screens) */}
-            <div className="col-span-2 lg:col-span-4">
-                <motion.div variants={footerVariants} className="flex items-center gap-3 mb-4">
-                    {/* High-Contrast, Gradient Logo */}
-                    <div className="w-12 h-12 rounded-lg bg-linear-to-br from-indigo-500 to-cyan-400 flex items-center justify-center text-white font-extrabold text-xl shadow-lg">VI</div>
-                    <div className="font-extrabold text-2xl tracking-tight">ViyaInnovations</div>
-                </motion.div>
-                <motion.p variants={footerVariants} className="mt-4 text-gray-400 text-sm max-w-xs">
-                    Engineering memorable brands and high-performance digital platforms for global leaders.
-                </motion.p>
-            </div>
+    return (
+        <motion.footer 
+            className="bg-gray-900 text-white border-t border-gray-700"
+            variants={footerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+        >
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-24">
+                
+                {/* Top Section: Logo, Links, and Contact */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-10">
+                    
+                    {/* Column 1: Logo and Brand Message */}
+                    <div className="sm:col-span-2 lg:col-span-4"> 
+                        <motion.div variants={footerVariants} className="flex items-center gap-3 mb-4">
+                            <img 
+                                src="/logo.png" 
+                                alt="ViyaInnovations Logo" 
+                                className="h-10 sm:h-12 w-auto" 
+                            />
+                        </motion.div>
+                        <div className="font-extrabold text-xl sm:text-2xl tracking-tight mb-3 sm:mb-4">
+                            ViyaInnovations
+                        </div>
+                        <motion.p 
+                            variants={footerVariants} 
+                            className="text-xs sm:text-sm max-w-xs leading-relaxed" 
+                            style={{ color: GRAY_TEXT }}
+                        >
+                            Engineering memorable brands and high-performance digital platforms for global leaders. We build scalable solutions using technologies like NestJS and TypeORM.
+                        </motion.p>
+                    </div>
 
-            {/* Column 2: Quick Links (Span 2 columns) */}
-            <div className="col-span-1 md:col-span-1 lg:col-span-2">
-                <motion.h4 variants={footerVariants} className="font-semibold text-lg mb-4 text-indigo-400 uppercase tracking-wider">
-                    Quick Links
-                </motion.h4>
-                <ul className="space-y-3">
-                    {navLinks.map((link) => (
-                        <motion.li key={link.name} variants={footerVariants}>
+                    {/* Column 2: Quick Links */}
+                    <div className="sm:col-span-1 lg:col-span-2"> 
+                        <motion.h4 
+                            variants={footerVariants} 
+                            className="font-semibold text-base sm:text-lg mb-3 sm:mb-4 uppercase tracking-wider" 
+                            style={{ color: ACCENT_COLOR }}
+                        >
+                            Quick Links
+                        </motion.h4>
+                        <ul className="space-y-2 sm:space-y-3">
+                            {navLinks.map((link) => (
+                                <motion.li key={link.name} variants={footerVariants}>
+                                    <a 
+                                        href={link.href} 
+                                        className="text-gray-300 hover:text-white transition duration-150 text-xs sm:text-sm"
+                                    >
+                                        {link.name}
+                                    </a>
+                                </motion.li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    {/* Column 3: Contact & Location */}
+                    <div className="sm:col-span-1 lg:col-span-3">
+                        <motion.h4 
+                            variants={footerVariants} 
+                            className="font-semibold text-base sm:text-lg mb-3 sm:mb-4 uppercase tracking-wider" 
+                            style={{ color: ACCENT_COLOR }}
+                        >
+                            Contact Us
+                        </motion.h4>
+                        <ul className="space-y-3 sm:space-y-4 text-xs sm:text-sm">
+                            <motion.li variants={footerVariants} className="flex items-start gap-2 sm:gap-3">
+                                <Mail size={16} className="shrink-0 mt-0.5 sm:mt-1" style={{ color: ACCENT_COLOR }} />
+                                <a 
+                                    href="mailto:hello@viyainnovations.com" 
+                                    className="text-gray-300 hover:text-white transition duration-150 break-all"
+                                >
+                                    hello@viyainnovations.com
+                                </a>
+                            </motion.li>
+                            <motion.li variants={footerVariants} className="flex items-start gap-2 sm:gap-3">
+                                <Phone size={16} className="shrink-0 mt-0.5 sm:mt-1" style={{ color: ACCENT_COLOR }} />
+                                <span className="text-gray-300">+1 (555) 123-4567</span>
+                            </motion.li>
+                            <motion.li variants={footerVariants} className="flex items-start gap-2 sm:gap-3">
+                                <MapPin size={16} className="shrink-0 mt-0.5 sm:mt-1" style={{ color: ACCENT_COLOR }} />
+                                <span className="text-gray-300 leading-relaxed">
+                                    123 Global Tech Plaza, New York, NY 10001
+                                </span>
+                            </motion.li>
+                        </ul>
+                    </div>
+                    
+                    {/* Column 4: Social Media */}
+                    <div className="sm:col-span-2 lg:col-span-3"> 
+                        <motion.h4 
+                            variants={footerVariants} 
+                            className="font-semibold text-base sm:text-lg mb-3 sm:mb-4 uppercase tracking-wider" 
+                            style={{ color: ACCENT_COLOR }}
+                        >
+                            Connect
+                        </motion.h4>
+                        <motion.div variants={footerVariants} className="flex space-x-4 sm:space-x-5">
                             <a 
-                                href={link.href} 
-                                className="text-gray-300 hover:text-indigo-400 transition duration-150 text-sm"
+                                href="https://linkedin.com" 
+                                target="_blank" 
+                                rel="noopener noreferrer" 
+                                aria-label="LinkedIn" 
+                                className="text-gray-400 hover:text-white transition duration-150"
                             >
-                                {link.name}
+                                <Linkedin size={22} className="sm:w-6 sm:h-6" />
                             </a>
-                        </motion.li>
-                    ))}
-                </ul>
+                            <a 
+                                href="https://twitter.com" 
+                                target="_blank" 
+                                rel="noopener noreferrer" 
+                                aria-label="Twitter" 
+                                className="text-gray-400 hover:text-white transition duration-150"
+                            >
+                                <Twitter size={22} className="sm:w-6 sm:h-6" />
+                            </a>
+                            <a 
+                                href="https://instagram.com" 
+                                target="_blank" 
+                                rel="noopener noreferrer" 
+                                aria-label="Instagram" 
+                                className="text-gray-400 hover:text-white transition duration-150"
+                            >
+                                <Instagram size={22} className="sm:w-6 sm:h-6" />
+                            </a>
+                        </motion.div>
+                        <motion.a 
+                            variants={footerVariants}
+                            href="#contact" 
+                            className="mt-5 sm:mt-6 inline-flex items-center text-xs sm:text-sm font-semibold hover:text-white transition duration-200"
+                            style={{ color: ACCENT_COLOR }}
+                        >
+                            Start a Conversation 
+                            <ArrowRight size={14} className="ml-1.5 sm:ml-2 sm:w-4 sm:h-4" />
+                        </motion.a>
+                    </div>
+                </div>
+
+                {/* --- Divider Line --- */}
+                <hr className="my-8 sm:my-10 lg:my-12 border-gray-700/50" />
+
+                {/* Bottom Section: Copyright and Legal */}
+                <div className="flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-6 text-xs sm:text-sm">
+                    <motion.div 
+                        variants={footerVariants} 
+                        className="text-gray-500 text-center sm:text-left"
+                    >
+                        © {currentYear} ViyaInnovations. All rights reserved.
+                    </motion.div>
+                    
+                    <motion.div 
+                        variants={footerVariants} 
+                        className="flex flex-col sm:flex-row gap-3 sm:gap-6 text-gray-500 text-center"
+                    >
+                        <a href="#terms" className="hover:text-white transition duration-150">
+                            Terms of Service
+                        </a>
+                        <a href="#privacy" className="hover:text-white transition duration-150">
+                            Privacy Policy
+                        </a>
+                    </motion.div>
+                </div>
+
             </div>
-
-            {/* Column 3: Contact & Location (Span 3 columns) */}
-            <div className="col-span-1 md:col-span-2 lg:col-span-3">
-                <motion.h4 variants={footerVariants} className="font-semibold text-lg mb-4 text-indigo-400 uppercase tracking-wider">
-                    Contact Us
-                </motion.h4>
-                <ul className="space-y-4 text-sm">
-                    <motion.li variants={footerVariants} className="flex items-start gap-3">
-                        <Mail size={18} className="text-indigo-400 shrink-0 mt-0.5" />
-                        <a href="mailto:hello@viyainnovations.com" className="text-gray-300 hover:text-indigo-400 transition duration-150">hello@viyainnovations.com</a>
-                    </motion.li>
-                    <motion.li variants={footerVariants} className="flex items-start gap-3">
-                        <Phone size={18} className="text-indigo-400 shrink-0 mt-0.5" />
-                        <span className="text-gray-300">+1 (555) 123-4567</span>
-                    </motion.li>
-                    <motion.li variants={footerVariants} className="flex items-start gap-3">
-                        <MapPin size={18} className="text-indigo-400 shrink-0 mt-0.5" />
-                        <span className="text-gray-300">123 Global Tech Plaza, New York, NY 10001</span>
-                    </motion.li>
-                </ul>
-            </div>
-            
-             {/* Column 4: Social Media (Span 3 columns) */}
-            <div className="col-span-2 md:col-span-1 lg:col-span-3">
-                <motion.h4 variants={footerVariants} className="font-semibold text-lg mb-4 text-indigo-400 uppercase tracking-wider">
-                    Connect
-                </motion.h4>
-                <motion.div variants={footerVariants} className="flex space-x-4">
-                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-gray-400 hover:text-indigo-400 transition duration-150">
-                        <Linkedin size={24} />
-                    </a>
-                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter" className="text-gray-400 hover:text-indigo-400 transition duration-150">
-                        <Twitter size={24} />
-                    </a>
-                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-gray-400 hover:text-indigo-400 transition duration-150">
-                        <Instagram size={24} />
-                    </a>
-                </motion.div>
-                <motion.a 
-                    variants={footerVariants}
-                    href="#contact" 
-                    className="mt-6 inline-flex items-center text-sm font-semibold text-indigo-400 hover:text-indigo-300 transition duration-200"
-                >
-                    Start a Conversation <ArrowRight size={16} className="ml-2" />
-                </motion.a>
-            </div>
-        </div>
-
-        {/* --- Divider Line --- */}
-        <hr className="my-12 border-gray-700/50" />
-
-        {/* Bottom Section: Copyright and Legal */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6 text-sm">
-            <motion.div variants={footerVariants} className="text-gray-500">
-                © {currentYear} ViyaInnovations. All rights reserved. Built for international excellence.
-            </motion.div>
-            
-            <motion.div variants={footerVariants} className="flex space-x-6 text-gray-500">
-                <a href="#terms" className="hover:text-indigo-400 transition duration-150">Terms of Service</a>
-                <a href="#privacy" className="hover:text-indigo-400 transition duration-150">Privacy Policy</a>
-            </motion.div>
-        </div>
-
-      </div>
-    </motion.footer>
-  );
+        </motion.footer>
+    );
 }

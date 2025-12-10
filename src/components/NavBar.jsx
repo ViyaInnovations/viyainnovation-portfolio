@@ -4,7 +4,7 @@ import {
   Menu,
   X,
   ChevronDown,
-  Globe, 
+  Globe, // Used for Language Selector
   Send,
 } from "lucide-react";
 
@@ -20,10 +20,11 @@ const NAVY_BLUE = "#0b132b";
 const NAVY_HOVER = "#1e293b"; // A slightly lighter slate/blue for hover feedback
 const NAVY_SHADOW = "0 4px 15px rgba(11, 19, 43, 0.4)"; // Shadow based on the primary color
 
-export default function AdvancedNavBar() {
+export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
-  
-  // Custom Hook to close menu on window resize (better UX)
+  const [isScrolled, setIsScrolled] = useState(false); 
+
+  // Custom Hook to close menu on window resize
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 768 && isOpen) {
@@ -34,9 +35,18 @@ export default function AdvancedNavBar() {
     return () => window.removeEventListener('resize', handleResize);
   }, [isOpen]);
 
+  // Scroll Effect for Shadow
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50); 
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const toggleMenu = () => setIsOpen(!isOpen);
 
-  // Framer Motion Variants for animations (no change needed here)
+  // Framer Motion Variants (Keep as is)
   const menuVariants = {
     hidden: { opacity: 0, x: "100%" },
     visible: { 
@@ -74,45 +84,52 @@ export default function AdvancedNavBar() {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ type: "spring", stiffness: 120, duration: 0.5 }}
-        className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm"
+        className={`sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 transition-shadow duration-300 ${
+            isScrolled ? 'shadow-lg' : 'shadow-sm' // Dynamic Shadow
+        }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
           
-          {/* Logo Section */}
-          <div className="flex items-center gap-3">
-            {/* Custom Navy Logo Accent */}
-            <div className="w-9 h-9 rounded-full text-white font-bold text-lg shadow-md" style={{ backgroundColor: NAVY_BLUE }}>VI</div>
+          {/* Logo Section - FIX: Reduced image size from w-24/h-24 to w-10/h-10 */}
+          <a href="#" className="flex items-center gap-3 group">
+            <img 
+                src="/logo.png" // Assumes logo.png is in the public folder
+                alt="ViyaInnovations Logo"
+                className="w-10 h-10 object-contain" // FIXED SIZE
+            />
             <div>
-              <h1 className="text-xl font-extrabold text-gray-900 tracking-tight">ViyaInnovations</h1>
-              {/* Subtle Navy accent for tagline */}
-              <p className="text-xs font-medium" style={{ color: NAVY_BLUE }}>Branding • Web • Motion</p>
+              <h1 className="text-xl font-extrabold text-gray-900 tracking-tight transition-colors duration-200 group-hover:text-gray-700">ViyaInnovations</h1>
+              <p className="text-xs font-medium transition-colors duration-200" style={{ color: NAVY_BLUE }}>Branding • Web • Motion</p>
             </div>
-          </div>
+          </a>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Navigation & Actions (No changes needed) */}
           <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-700">
             {navLinks.map((link, index) => (
               <a 
                 key={index} 
                 href={link.href}
-                // Custom Navy Hover Text
                 className="transition duration-150 relative group"
-                style={{ "--hover-color": NAVY_BLUE }} // Using CSS variable for hover text color
                 onMouseEnter={e => e.currentTarget.style.color = NAVY_BLUE}
                 onMouseLeave={e => e.currentTarget.style.color = ''}
               >
                 {link.name}
-                {/* Custom Navy Underline Hover Effect */}
-                <span className="absolute bottom-0 left-0 w-full h-0.5 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" style={{ backgroundColor: NAVY_BLUE }}></span>
+                <span className="absolute -bottom-1 left-0 w-full h-0.5 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" style={{ backgroundColor: NAVY_BLUE }}></span>
               </a>
             ))}
+
+            <button 
+                className="flex items-center gap-1.5 p-1.5 rounded-full text-gray-600 text-xs font-semibold hover:bg-gray-50 transition duration-150 border border-transparent hover:border-gray-200"
+                aria-label="Select Language"
+            >
+                <Globe size={16} />
+                EN <ChevronDown size={14} />
+            </button>
             
-            {/* CTA Button - High-Class Custom Navy Look */}
             <motion.a 
-              whileHover={{ scale: 1.05, boxShadow: NAVY_SHADOW }} // Custom Navy Shadow
+              whileHover={{ scale: 1.05, boxShadow: NAVY_SHADOW }} 
               whileTap={{ scale: 0.95 }}
               href="#quote"
-              // Custom Navy Button and Hover Color
               className="ml-4 inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full text-white text-sm font-semibold shadow-lg transition duration-200 ease-in-out"
               style={{ backgroundColor: NAVY_BLUE }}
               onMouseEnter={e => e.currentTarget.style.backgroundColor = NAVY_HOVER}
@@ -123,8 +140,15 @@ export default function AdvancedNavBar() {
             </motion.a>
           </nav>
 
-          {/* Mobile Menu Button */}
-          <div className="md:hidden">
+          {/* Mobile Menu Button (No changes needed) */}
+          <div className="md:hidden flex items-center gap-2">
+            <button 
+                className="p-2 rounded-full text-gray-600 hover:bg-gray-50 transition duration-150"
+                aria-label="Select Language"
+            >
+                <Globe size={20} />
+            </button>
+
             <button 
               aria-label="Toggle Menu" 
               onClick={toggleMenu}
@@ -136,7 +160,7 @@ export default function AdvancedNavBar() {
         </div>
       </motion.header>
 
-      {/* Mobile Full-Screen Drawer */}
+      {/* Mobile Full-Screen Drawer (No changes needed) */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -144,20 +168,26 @@ export default function AdvancedNavBar() {
             initial="hidden"
             animate="visible"
             exit="exit"
-            className="fixed top-0 left-0 w-full h-screen bg-white z-40 p-8 flex flex-col justify-start md:hidden overflow-y-auto"
+            className="fixed top-0 right-0 w-full max-w-sm h-screen bg-white z-40 p-8 flex flex-col justify-start md:hidden overflow-y-auto shadow-2xl"
           >
-            <div className="flex justify-end mb-10">
-              <button 
-                aria-label="Close Menu" 
-                onClick={toggleMenu}
-                className="p-2 rounded-full border border-gray-200 text-gray-700 hover:bg-gray-50 transition duration-150"
-              >
-                <X size={24} />
-              </button>
+            {/* Drawer Header: Close Button and Logo */}
+            <div className="flex justify-between items-center mb-10">
+                <a href="#" onClick={toggleMenu} className="flex items-center gap-2">
+                    <img src="/logo.png" alt="ViyaInnovations Logo" className="w-8 h-8 object-contain" />
+                    <span className="text-xl font-extrabold text-gray-900">ViyaInnovations</span>
+                </a>
+                <button 
+                  aria-label="Close Menu" 
+                  onClick={toggleMenu}
+                  className="p-2 rounded-full border border-gray-200 text-gray-700 hover:bg-gray-50 transition duration-150"
+                >
+                  <X size={24} />
+                </button>
             </div>
 
+
             {/* Mobile Links */}
-            <nav className="flex flex-col gap-6 text-2xl font-bold text-gray-800">
+            <nav className="flex flex-col gap-4 text-xl font-bold text-gray-800">
               {navLinks.map((link, index) => (
                 <motion.a
                   key={link.name}
@@ -167,11 +197,10 @@ export default function AdvancedNavBar() {
                   initial="hidden"
                   animate="visible"
                   onClick={toggleMenu} 
-                  // Custom Navy Hover Text
-                  className="py-2 transition duration-150 border-b border-gray-100 last:border-b-0"
-                  style={{ "--hover-color": NAVY_BLUE }} // Using CSS variable for hover text color
+                  className="py-3 transition duration-150 border-b border-gray-100 hover:border-b-2"
+                  style={{ "--hover-color": NAVY_BLUE }} 
                   onMouseEnter={e => e.currentTarget.style.color = NAVY_BLUE}
-                  onMouseLeave={e => e.currentTarget.style.color = ''}
+                  onMouseLeave={e => e.currentTarget.style.color = 'rgb(31 41 55)'} // Reset color to gray-800
                 >
                   {link.name}
                 </motion.a>
@@ -185,7 +214,6 @@ export default function AdvancedNavBar() {
               transition={{ delay: navLinks.length * 0.1 + 0.2 }}
               href="#quote"
               onClick={toggleMenu}
-              // Custom Navy Button and Hover Color
               className="mt-10 inline-flex items-center justify-center gap-2 w-full px-6 py-4 rounded-xl text-white text-lg font-semibold shadow-xl transition duration-200 ease-in-out"
               style={{ backgroundColor: NAVY_BLUE }}
               onMouseEnter={e => e.currentTarget.style.backgroundColor = NAVY_HOVER}

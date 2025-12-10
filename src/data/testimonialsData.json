@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "quote": "ViyaInnovations' strategic guidance was invaluable. They didn't just redesign our platform; they architected a growth engine that increased our weekly active users by 35% in the first quarter.",
+    "name": "Sarah Chen",
+    "title": "Head of Digital Transformation",
+    "company": "Ascend Global",
+    "imagePath": "/testimonials/sarah-chen.png"
+  },
+  {
+    "id": 2,
+    "quote": "The development team's transparency and technical depth were outstanding. We achieved a lightning-fast site speed score (98+ on mobile) which immediately lowered bounce rates and boosted SEO.",
+    "name": "David Al-Farsi",
+    "title": "Chief Technology Officer",
+    "company": "Horizon Financial",
+    "imagePath": "/testimonials/david-alfarsi.png"
+  },
+  {
+    "id": 3,
+    "quote": "Our brand identity needed a complete overhaul. ViyaInnovations captured our vision perfectly, creating a distinctive look and messaging that resonates strongly with our target enterprise clients.",
+    "name": "Maria Lopez",
+    "title": "VP of Marketing",
+    "company": "FuturePulse Analytics",
+    "imagePath": "/testimonials/maria-lopez.png"
+  },
+  {
+    "id": 4,
+    "quote": "We rely on them for all our motion graphics and video ad campaigns. The creative quality is consistently superb, leading directly to higher engagement rates than any previous vendor.",
+    "name": "Marcus Kane",
+    "title": "Creative Director",
+    "company": "Veloce Motors",
+    "imagePath": "/testimonials/marcus-kane.png"
+  }
+]
