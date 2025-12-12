@@ -1,0 +1,47 @@
+[
+    {
+        "id": 1,
+        "name": "Alex Kinsley",
+        "title": "Chief Digital Strategist",
+        "specialty": "Strategy & Consulting",
+        "bio": "Drives enterprise digital transformation, focusing on measurable ROI and long-term tech roadmap planning.",
+        "imagePath": "/team/2.jpeg",
+        "linkedin": "https://linkedin.com/in/alexkinsley"
+    },
+    {
+        "id": 2,
+        "name": "Maya Singh",
+        "title": "Lead Full-Stack Architect",
+        "specialty": "Web & Application Development",
+        "bio": "Specializes in scalable, high-performance web applications using React, TypeScript, and modern headless architectures.",
+        "imagePath": "/team/2.jpeg",
+        "linkedin": "https://linkedin.com/in/mayasingh"
+    },
+    {
+        "id": 3,
+        "name": "Ben Carter",
+        "title": "Senior Backend Engineer",
+        "specialty": "Backend & DevOps",
+        "bio": "Expert in NestJS, TypeORM, and secure infrastructure. Dedicated to building robust, maintainable APIs and database systems.",
+        "imagePath": "/team/2.jpeg",
+        "linkedin": "https://linkedin.com/in/bencarter"
+    },
+    {
+        "id": 4,
+        "name": "Chloe Lim",
+        "title": "Head of Product Design (UX/UI)",
+        "specialty": "UI/UX & Creative",
+        "bio": "Focuses on user-centric design principles that balance innovative aesthetics with real-world business needs and accessibility.",
+        "imagePath": "/team/2.jpeg",
+        "linkedin": "https://linkedin.com/in/chloelim"
+    },
+    {
+        "id": 5,
+        "name": "David Ramirez",
+        "title": "Senior Project Manager (PMP)",
+        "specialty": "Project Management",
+        "bio": "Ensures timely delivery and clear communication across complex projects using Agile methodologies and strict quality assurance.",
+        "imagePath": "/team/2.jpeg",
+        "linkedin": "https://linkedin.com/in/davidramirez"
+    }
+]

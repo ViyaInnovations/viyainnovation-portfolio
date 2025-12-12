@@ -1,0 +1,22 @@
+[
+  {
+    "icon": "Target",
+    "title": "1. Define & Strategize",
+    "description": "We begin with discovery sessions to align goals, define user journeys, and architect a tailored technical roadmap."
+  },
+  {
+    "icon": "LayoutGrid",
+    "title": "2. Design & Prototype",
+    "description": "Our UI/UX team builds wireframes, mockups, and interactive prototypes ensuring clarity before development."
+  },
+  {
+    "icon": "Code",
+    "title": "3. Build & Iterate",
+    "description": "Development moves in agile sprints with continuous testing, feedback integration, and robust engineering."
+  },
+  {
+    "icon": "Rocket",
+    "title": "4. Launch & Optimize",
+    "description": "We deploy, monitor performance, and refine with data-driven improvements after launch."
+  }
+]
