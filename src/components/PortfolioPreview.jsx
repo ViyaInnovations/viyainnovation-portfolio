@@ -83,7 +83,7 @@ const ProjectCard = ({ project }) => (
                     className="inline-flex items-center gap-2 text-sm font-semibold hover:opacity-80"
                     style={{ color: NAVY_BLUE }}
                 >
-                    View Case Study
+                    site visit
                     <ArrowRight size={16} />
                 </a>
             </div>
