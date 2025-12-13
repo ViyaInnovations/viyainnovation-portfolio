@@ -115,12 +115,12 @@ export default function Footer() {
                             </motion.li>
                             <motion.li variants={footerVariants} className="flex items-start gap-2 sm:gap-3">
                                 <Phone size={16} className="shrink-0 mt-0.5 sm:mt-1" style={{ color: ACCENT_COLOR }} />
-                                <span className="text-gray-300">+1 (555) 123-4567</span>
+                                <span className="text-gray-300"> +91 799 4149 009 </span>
                             </motion.li>
                             <motion.li variants={footerVariants} className="flex items-start gap-2 sm:gap-3">
                                 <MapPin size={16} className="shrink-0 mt-0.5 sm:mt-1" style={{ color: ACCENT_COLOR }} />
                                 <span className="text-gray-300 leading-relaxed">
-                                    123 Global Tech Plaza, New York, NY 10001
+                                   Breeze Arcade First Floor, Kottoli, Chevayur Post, Kozhikode, Kerala, India
                                 </span>
                             </motion.li>
                         </ul>
