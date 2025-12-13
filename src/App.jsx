@@ -9,6 +9,7 @@ import Process from "./components/Process"
 import PortfolioPreview from "./components/PortfolioPreview"
 import Testimonials from "./components/Testimonials"
 import MeetTheTeam from "./components/MeetTheTeam"
+import Contact from "./components/Contact"
 function App() {
 
   return (
@@ -33,14 +34,26 @@ function App() {
     <TrustBar/>
     <Service />
     <Process/>
-<PortfolioPreview/>
+<section id="work">
+  <PortfolioPreview/>
+</section>
 {/* <Testimonials/> */}
-<MeetTheTeam/>
+<section id="about"> 
+  <MeetTheTeam/>
+</section>
+
+<section id="contact">
+  <Contact/>
+
+</section>
  <Footer />
 
+
     {/* <Studies /> */}
+
     {/* <About /> */}
-   
+
+  
 
     </>
   )
