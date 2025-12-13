@@ -29,7 +29,9 @@ function App() {
 10,Footer,"Contains contact details, sitemap links, social media icons, and legal information."
     */}
     <NavBar />
-    <Hero />
+    <section id="#hero">
+      <Hero />
+    </section>
     <TrustBar/>
     <Service />
     <Process/>

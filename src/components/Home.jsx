@@ -12,7 +12,7 @@ export default function Home() {
     <>
       <Hero />
       <TrustBar />
-      <section id="services">
+      <section id='service'>
         <Service />
       </section>
       <Process />

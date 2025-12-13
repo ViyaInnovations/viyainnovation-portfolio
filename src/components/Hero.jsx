@@ -70,7 +70,7 @@ export default function Hero() {
     const currentImage = heroImages[currentImageIndex];
 
     return (
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-32">
+        <section id='hero' className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-32">
             <motion.div
                 variants={containerVariants}
                 initial="hidden"
