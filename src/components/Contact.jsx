@@ -12,7 +12,7 @@ import {
   TrendingUp,
   Image as ImageIcon,
 } from "lucide-react";
-export default function Contac() {
+export default function Contact() {
   return (
 <>
  <section id="contact" className="max-w-6xl mx-auto px-6 py-16">
