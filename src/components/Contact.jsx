@@ -1,69 +1,95 @@
-import React from 'react'
+import React from "react";
 import { motion } from "framer-motion";
-import {
-  Menu,
-  X,
-  Mail,
-  Phone,
-  Briefcase,
-  Camera,
-  Play,
-  Monitor,
-  TrendingUp,
-  Image as ImageIcon,
-} from "lucide-react";
+import { Mail, Phone, MapPin } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
+
 export default function Contact() {
-  return (
-<>
- <section id="contact" className="max-w-6xl mx-auto px-6 py-16">
-          <h3 className="text-2xl font-bold">Let's build something together</h3>
-          <p className="mt-2 text-slate-500">Tell us about your project — we'll reply within one business day.</p>
+    return (
+        <section id="contact" className="bg-gray-50 py-20">
+            <div className="max-w-6xl mx-auto px-6">
+                {/* Header */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="text-center max-w-2xl mx-auto"
+                >
+                    <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900">Let’s Build Something Together</h2>
+                    <p className="mt-4 text-gray-600">Tell us about your project. We respond within one business day.</p>
+                </motion.div>
 
-          <div className="mt-8 grid md:grid-cols-2 gap-8">
-            <form className="space-y-4 bg-white p-6 rounded-lg shadow">
-              <div>
-                <label className="text-sm font-medium">Name</label>
-                <input className="mt-1 w-full border px-3 py-2 rounded-md" placeholder="Your name" />
-              </div>
+                {/* Content */}
+                <div className="mt-16 grid md:grid-cols-2 gap-10">
+                    {/* LEFT — Primary CTA */}
+                    <motion.div
+                        initial={{ opacity: 0, x: -30 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        className="bg-white p-8 rounded-2xl shadow-lg"
+                    >
+                        <h3 className="text-xl font-bold text-gray-900">Quickest Way to Reach Us</h3>
 
-              <div>
-                <label className="text-sm font-medium">Email</label>
-                <input className="mt-1 w-full border px-3 py-2 rounded-md" placeholder="you@company.com" />
-              </div>
+                        <p className="mt-3 text-gray-600">
+                            Prefer instant communication? Chat with us directly on WhatsApp.
+                        </p>
 
-              <div>
-                <label className="text-sm font-medium">Project brief</label>
-                <textarea className="mt-1 w-full border px-3 py-2 rounded-md" rows={5} placeholder="Brief description of your needs" />
-              </div>
+                        <a
+                            href="https://wa.me/917994159009?text=Hello%20I%20would%20like%20to%20discuss%20a%20project"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="mt-6 inline-flex items-center justify-center gap-3 w-full px-6 py-4 rounded-xl bg-green-500 text-white font-semibold text-lg hover:bg-green-600 transition"
+                        >
+                            <FaWhatsapp size={22} />
+                            Chat on WhatsApp
+                        </a>
 
-              <div className="flex items-center gap-3">
-                <button className="px-4 py-2 rounded-md bg-indigo-600 text-white">Send message</button>
-                <button type="button" className="px-4 py-2 rounded-md border">Request a call</button>
-              </div>
-            </form>
+                        <p className="mt-4 text-sm text-gray-500 text-center">
+                            Average reply time: under 1 hour (business hours)
+                        </p>
+                    </motion.div>
 
-            <div className="space-y-6">
-              <div className="bg-white p-6 rounded-lg shadow">
-                <h4 className="font-semibold">Contact</h4>
-                <p className="mt-3 text-slate-600">Have questions? Reach out directly.</p>
+                    {/* RIGHT — Contact Info */}
+                    <motion.div
+                        initial={{ opacity: 0, x: 30 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        className="space-y-6"
+                    >
+                        <div className="bg-white p-6 rounded-xl shadow">
+                            <h4 className="font-semibold text-gray-900">Email & Phone</h4>
 
-                <div className="mt-4 text-sm text-slate-700 space-y-2">
-                  <div className="flex items-center gap-2"><Mail size={16} /> hello@viyaexample.com</div>
-                  <div className="flex items-center gap-2"><Phone size={16} /> +91 98765 43210</div>
+                            <div className="mt-4 space-y-3 text-gray-700 text-sm">
+                                <div className="flex items-center gap-3">
+                                    <Mail size={16} />
+                                    viyainnovations@gmail.com
+                                </div>
+                                <div className="flex items-center gap-3">
+                                    <Phone size={16} />
+                                    +91 7994159009
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="bg-white p-6 rounded-xl shadow">
+                            <h4 className="font-semibold text-gray-900">Office Location</h4>
+                            <div className="mt-3 flex items-start gap-3 text-sm text-gray-600">
+                                <MapPin size={16} />
+                                Breeze Arcade First Floor, Kottoli, Chevayur Post, Kozhikode, Kerala, India{" "}
+                            </div>
+                        </div>
+
+                        <div className="bg-white p-6 rounded-xl shadow">
+                            <h4 className="font-semibold text-gray-900">What Happens Next?</h4>
+                            <p className="mt-2 text-sm text-gray-600">
+                                • We review your request
+                                <br />
+                                • Propose an approach & timeline
+                                <br />• Share an estimate within 24 hours
+                            </p>
+                        </div>
+                    </motion.div>
                 </div>
-              </div>
-
-              <div className="bg-white p-6 rounded-lg shadow">
-                <h4 className="font-semibold">Offices</h4>
-                <p className="mt-2 text-sm text-slate-600">Cochin, India — open to remote international clients.</p>
-              </div>
-
-              <div className="bg-white p-6 rounded-lg shadow">
-                <h4 className="font-semibold">Start a project</h4>
-                <p className="mt-2 text-sm text-slate-600">Share a one‑page brief and we'll propose an approach & estimate.</p>
-              </div>
             </div>
-          </div>
         </section>
-</>  )
+    );
 }
