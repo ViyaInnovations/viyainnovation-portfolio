@@ -32,7 +32,7 @@ const ProjectCard = ({ project }) => (
     <motion.a
         href={`/work/${project.linkSlug}`}
         variants={projectVariants}
-        className="group block rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 bg-white border border-gray-100"
+        className="group block rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 bg-white border border-gray-100" id="#work"
     >
         <div className="relative overflow-hidden h-64 md:h-72 rounded-xl bg-gray-100">
             <img
@@ -100,7 +100,7 @@ export default function PortfolioPreview() {
     const [emblaRef] = useEmblaCarousel({ loop: true, align: "start" });
 
     return (
-        <section className="bg-gray-50 py-16 md:py-28" id="portfolio">
+<section className="bg-gray-50 py-16 md:py-28" id="#work">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Header */}
                 <div className="max-w-4xl mx-auto text-center mb-12">

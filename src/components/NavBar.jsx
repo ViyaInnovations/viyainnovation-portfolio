@@ -7,7 +7,7 @@ import {
   Globe, // Used for Language Selector
   Send,
 } from "lucide-react";
-
+import About from './About';
 const navLinks = [
   { name: "Services", href: "#services" },
   { name: "Work", href: "#work" },
