@@ -4,7 +4,7 @@ import Process from "./Process"
 import PortfolioPreview from "./PortfolioPreview"
 import Testimonials from "./Testimonials"
 import MeetTheTeam from "./MeetTheTeam"
-import Hero from ".s/Hero"
+import Hero from "./Hero"
 import Service from "./Service" 
 import Studies from "./Studies" 
 export default function Home() {
