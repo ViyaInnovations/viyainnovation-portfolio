@@ -53,7 +53,7 @@ const ProjectCard = ({ project }) => (
             />
 
             {/* Soft gradient overlay bottom for depth */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
+            <div className="absolute inset-0 bg-linear-to-t from-black/20 to-transparent pointer-events-none" />
         </div>
 
         <div className="p-5">

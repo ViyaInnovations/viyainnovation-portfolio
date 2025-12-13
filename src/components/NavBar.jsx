@@ -13,8 +13,8 @@ import {
 const navLinks = [
   { name: "Services", href: "#services" },
   { name: "Work", href: "#work" },
-  { name: "About", route: "/about" },     // 👈 route
-  { name: "Contact", route: "/contact" }, // 👈 route
+  // { name: "About", href: "#about" },
+  { name: "Contact", href: "#contact" },
 ];
 
 // --- Custom Color Definitions ---
