@@ -6,7 +6,7 @@ const NAVY_BLUE = "#0b132b";
 
 // --- Data: Client Logo Paths ---
 // Since the logos are in public/trust/1.png to 10.png, we generate the paths.
-const clientLogos = Array.from({ length: 10 }, (_, i) => ({
+const clientLogos = Array.from({ length: 5}, (_, i) => ({
     id: i + 1,
     src: `/trust/${i + 1}.jpg`,
     alt: `Client Logo ${i + 1}`,
