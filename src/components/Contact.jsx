@@ -61,7 +61,7 @@ export default function Contact() {
                             <div className="mt-4 space-y-3 text-gray-700 text-sm">
                                 <div className="flex items-center gap-3">
                                     <Mail size={16} />
-                                    viyainnovations@gmail.com
+                                    info@viyainnovations.com
                                 </div>
                                 <div className="flex items-center gap-3">
                                     <Phone size={16} />

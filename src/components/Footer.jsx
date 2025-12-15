@@ -108,10 +108,10 @@ export default function Footer() {
                             <motion.li variants={footerVariants} className="flex items-start gap-2 sm:gap-3">
                                 <Mail size={16} className="shrink-0 mt-0.5 sm:mt-1" style={{ color: ACCENT_COLOR }} />
                                 <a 
-                                    href="mailto:viyainnovations@gmail.com" 
+                                    href="mailto: info@viyainnovations.com" 
                                     className="text-gray-300 hover:text-white transition duration-150 break-all"
                                 >
-                                    viyainnovations@gmail.com
+                                     info@viyainnovations.com
                                 </a>
                             </motion.li>
                             <motion.li variants={footerVariants} className="flex items-start gap-2 sm:gap-3">
