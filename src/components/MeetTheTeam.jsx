@@ -27,48 +27,41 @@ const TeamCard = ({ member }) => (
         className="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden max-w-2xl mx-auto"
     >
         <div className="grid md:grid-cols-5">
-           
-              {/* IMAGE — FIXED SIZE & RATIO */}
-      <div className="md:col-span-2 bg-gray-100">
-        <div className="aspect-[4/5] w-full overflow-hidden">
-          <img
-            src={member.imagePath}
-            alt={member.name}
-            className="w-full h-full object-cover object-top"
-          />
-        </div>
-      </div>
+            {/* IMAGE — FIXED SIZE & RATIO */}
+            <div className="md:col-span-2 bg-gray-100">
+                <div className="aspect-[1/1] w-full overflow-hidden">
+                    <img src={member.imagePath} alt={member.name} className="w-full h-full object-cover object-top" />
+                </div>
+            </div>
 
             {/* Content */}
-            <div className="md:col-span-3 p-5 md:p-6 flex flex-col justify-between">
-                {/* Bio (compact) */}
-                {member.bio && (
-                    // <p
-                    //   className="text-sm text-gray-700 leading-relaxed mb-4"
-                    // >
-                    <p className="text-sm text-gray-700 leading-relaxed mb-4 line-clamp-3">{member.bio}</p>
-                )}
 
+            <div className="md:col-span-3 p-3 md:p-4 flex flex-col gap-4">
                 {/* Name & Role */}
-                <div>
-                    <h3 className="text-xl font-bold" style={{ color: COLORS.primary }}>
+                
+                    <h3 className="text-lg font-bold leading-tight" style={{ color: COLORS.primary }}>
                         {member.name}
                     </h3>
-                    <p className="text-sm mt-0.5" style={{ color: COLORS.muted }}>
+                    <p className="text-sm leading-tight mt-0" style={{ color: COLORS.muted }}>
                         {member.title}
                     </p>
                     {member.specialty && (
-                        <p className="text-xs mt-1" style={{ color: COLORS.primary }}>
+                        <p className="text-xs leading-tight mt-0.5" style={{ color: COLORS.primary }}>
                             {member.specialty}
                         </p>
                     )}
-                </div>
+                    {member.bio && (
+                    // <p
+                    // >
+                    <p className="text-sm text-gray-700 leading-relaxed mb-4 line-clamp-2">{member.bio}</p>
+                )}
+            
             </div>
         </div>
 
         {/* Social Media Section (SEPARATE BOTTOM BAR) */}
         {member.linkedin && (
-            <div className="border-t bg-gray-50 px-5 py-3 flex justify-end">
+            <div className="border-t bg-gray-50 px-4 py-2 flex justify-end">
                 <a
                     href={member.linkedin}
                     target="_blank"
@@ -99,7 +92,7 @@ const TeamCarousel = ({ members }) => {
 
     return (
         <div className="relative">
-            <div className="relative min-h-[360px] flex items-center justify-center overflow-hidden">
+            <div className="relative min-h-[300px] min-w-[900px] flex items-center justify-center overflow-hidden">
                 <AnimatePresence mode="wait" initial={false}>
                     <motion.div
                         key={page}

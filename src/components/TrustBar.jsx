@@ -68,7 +68,17 @@ export default function TrustBar() {
                                     src={logo.src}
                                     alt={logo.alt}
                                     // Tailwind classes to style the logos
-                                    className="max-h-full max-w-full object-contain filter grayscale opacity-60 hover:opacity-100 transition-opacity duration-300"
+                                    className="
+  max-h-full 
+  max-w-full 
+  object-contain 
+  filter 
+  grayscale 
+  hover:grayscale-0 
+  transition-all 
+  duration-300
+"
+
                                     style={{ 
                                         // Max width set to prevent stretching on screens larger than needed
                                         maxWidth: '120px' 
