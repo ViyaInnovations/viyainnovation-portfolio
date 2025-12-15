@@ -37,7 +37,6 @@ const TeamCard = ({ member }) => (
             {/* Content */}
 
             <div className="md:col-span-3 p-3 md:p-4 flex flex-col gap-4">
-                {/* Name & Role */}
                 
                     <h3 className="text-lg font-bold leading-tight" style={{ color: COLORS.primary }}>
                         {member.name}
@@ -50,12 +49,13 @@ const TeamCard = ({ member }) => (
                             {member.specialty}
                         </p>
                     )}
-                    {member.bio && (
+                     {member.bio && (
                     // <p
+                    //   className="text-sm text-gray-700 leading-relaxed mb-4"
                     // >
                     <p className="text-sm text-gray-700 leading-relaxed mb-4 line-clamp-2">{member.bio}</p>
                 )}
-            
+                
             </div>
         </div>
 
