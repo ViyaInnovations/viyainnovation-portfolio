@@ -8,6 +8,8 @@ import Process from "./components/Process"
 import PortfolioPreview from "./components/PortfolioPreview"
 import Testimonials from "./components/Testimonials"
 import MeetTheTeam from "./components/MeetTheTeam"
+// import TeamCard from "./components/TeamCard"
+
 import Contact from "./components/Contact"
 function App() {
 
@@ -41,6 +43,7 @@ function App() {
 {/* <Testimonials/> */}
 <section id="about"> 
   <MeetTheTeam/>
+  {/* <TeamCard/> */}
 </section>
 
 <section id="contact">

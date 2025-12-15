@@ -1,177 +1,172 @@
-import React, { useRef, useState, useCallback, useEffect } from "react";
-import { motion, useInView, AnimatePresence } from "framer-motion";
+import React, { useState, useEffect, useCallback, useRef } from "react";
+import { motion, AnimatePresence, useInView } from "framer-motion";
 import { Linkedin, Briefcase } from "lucide-react";
-
-// JSON Data
 import teamData from "../data/teamData.json";
 
-// Colors
-const NAVY_BLUE = "#0b132b";
-const NAVY_ACCENT_LIGHT = "#e0f2f1";
-
-// Helper
-const wrap = (min, max, value) => {
-  const range = max - min;
-  return ((((value - min) % range) + range) % range) + min;
+const COLORS = {
+    primary: "#0b132b",
+    accent: "#e0f2f1",
+    muted: "#6b7280",
 };
 
-// Animation Variants
-const sliderVariants = {
-  enter: { opacity: 0, x: 40 },
-  center: { opacity: 1, x: 0 },
-  exit: { opacity: 0, x: -40 }
+const wrap = (min, max, v) => ((((v - min) % (max - min)) + (max - min)) % (max - min)) + min;
+
+const slideVariants = {
+    enter: { opacity: 0, x: 60 },
+    center: { opacity: 1, x: 0 },
+    exit: { opacity: 0, x: -60 },
 };
 
-// Team Card
-const TeamCard = ({ member }) => {
-  return (
-    <motion.div
-      className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 max-w-3xl mx-auto"
-      whileHover={{ scale: 1.005 }}
+/* =========================
+   TEAM CARD (REDUCED HEIGHT)
+   ========================= */
+const TeamCard = ({ member }) => (
+    <motion.article
+        whileHover={{ y: -3 }}
+        transition={{ type: "spring", stiffness: 200, damping: 22 }}
+        className="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden max-w-2xl mx-auto"
     >
-      <div className="flex flex-col md:flex-row">
-        
-        {/* Image */}
-        <div className="md:w-2/5 h-56 md:h-full overflow-hidden">
+        <div className="grid md:grid-cols-5">
+           
+              {/* IMAGE — FIXED SIZE & RATIO */}
+      <div className="md:col-span-2 bg-gray-100">
+        <div className="aspect-[4/5] w-full overflow-hidden">
           <img
             src={member.imagePath}
             alt={member.name}
             className="w-full h-full object-cover object-top"
           />
         </div>
+      </div>
 
-        {/* Content */}
-        <div className="md:w-3/5 p-5 md:p-7 flex flex-col justify-between">
-          <p
-            className="text-sm md:text-base text-gray-700 italic border-l-4 pl-3 mb-4"
-            style={{ borderColor: NAVY_ACCENT_LIGHT }}
-          >
-            "{member.bio}"
-          </p>
+            {/* Content */}
+            <div className="md:col-span-3 p-5 md:p-6 flex flex-col justify-between">
+                {/* Bio (compact) */}
+                {member.bio && (
+                    // <p
+                    //   className="text-sm text-gray-700 leading-relaxed mb-4"
+                    // >
+                    <p className="text-sm text-gray-700 leading-relaxed mb-4 line-clamp-3">{member.bio}</p>
+                )}
 
-          <div>
-            <h3
-              className="text-xl md:text-2xl font-bold mb-1"
-              style={{ color: NAVY_BLUE }}
-            >
-              {member.name}
-            </h3>
-            <p className="text-gray-500 text-sm md:text-base mb-3">
-              {member.title}
-            </p>
-          </div>
-
-          <div className="border-t pt-3 flex justify-end">
-            <a
-              href={member.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2.5 rounded-full transition-transform hover:scale-110"
-              style={{ background: NAVY_ACCENT_LIGHT, color: NAVY_BLUE }}
-            >
-              <Linkedin size={20} />
-            </a>
-          </div>
+                {/* Name & Role */}
+                <div>
+                    <h3 className="text-xl font-bold" style={{ color: COLORS.primary }}>
+                        {member.name}
+                    </h3>
+                    <p className="text-sm mt-0.5" style={{ color: COLORS.muted }}>
+                        {member.title}
+                    </p>
+                    {member.specialty && (
+                        <p className="text-xs mt-1" style={{ color: COLORS.primary }}>
+                            {member.specialty}
+                        </p>
+                    )}
+                </div>
+            </div>
         </div>
-      </div>
-    </motion.div>
-  );
-};
 
-// Auto Carousel
+        {/* Social Media Section (SEPARATE BOTTOM BAR) */}
+        {member.linkedin && (
+            <div className="border-t bg-gray-50 px-5 py-3 flex justify-end">
+                <a
+                    href={member.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-sm font-medium transition-colors"
+                    style={{ color: COLORS.primary }}
+                >
+                    <Linkedin size={18} /> LinkedIn
+                </a>
+            </div>
+        )}
+    </motion.article>
+);
+
+/* =========================
+   CAROUSEL
+   ========================= */
 const TeamCarousel = ({ members }) => {
-  const [[page], setPage] = useState([0]);
-  const memberIndex = wrap(0, members.length, page);
+    const [[page], setPage] = useState([0]);
+    const index = wrap(0, members.length, page);
 
-  // Auto slide every 4 seconds
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setPage(([p]) => [p + 1]);
-    }, 4000);
+    useEffect(() => {
+        const id = setInterval(() => setPage(([p]) => [p + 1]), 4500);
+        return () => clearInterval(id);
+    }, []);
 
-    return () => clearInterval(interval);
-  }, []);
+    const goTo = useCallback((i) => setPage([i]), []);
 
-  const goToSlide = useCallback((index) => {
-    setPage([index]);
-  }, []);
+    return (
+        <div className="relative">
+            <div className="relative min-h-[360px] flex items-center justify-center overflow-hidden">
+                <AnimatePresence mode="wait" initial={false}>
+                    <motion.div
+                        key={page}
+                        variants={slideVariants}
+                        initial="enter"
+                        animate="center"
+                        exit="exit"
+                        transition={{ duration: 0.55, ease: "easeOut" }}
+                        className="absolute w-full px-4 md:px-8"
+                    >
+                        <TeamCard member={members[index]} />
+                    </motion.div>
+                </AnimatePresence>
+            </div>
 
-  return (
-    <div className="relative">
-
-      {/* Slider */}
-      <div className="relative min-h-[420px] flex items-center justify-center overflow-hidden py-6">
-        <AnimatePresence initial={false} mode="wait">
-          <motion.div
-            key={page}
-            variants={sliderVariants}
-            initial="enter"
-            animate="center"
-            exit="exit"
-            transition={{ duration: 0.55 }}
-            className="absolute w-full px-3 md:px-8"
-          >
-            <TeamCard member={members[memberIndex]} />
-          </motion.div>
-        </AnimatePresence>
-      </div>
-
-      {/* Dots */}
-      <div className="flex justify-center gap-2 mt-2">
-        {members.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => goToSlide(index)}
-            className={`h-2 w-2 rounded-full transition-all`}
-            style={{
-              backgroundColor:
-                memberIndex === index ? NAVY_BLUE : NAVY_ACCENT_LIGHT
-            }}
-          />
-        ))}
-      </div>
-    </div>
-  );
+            {/* Dots */}
+            <div className="flex justify-center gap-2 mt-4">
+                {members.map((_, i) => (
+                    <button
+                        key={i}
+                        onClick={() => goTo(i)}
+                        className="h-2 rounded-full transition-all"
+                        style={{
+                            width: index === i ? 16 : 8,
+                            background: index === i ? COLORS.primary : COLORS.accent,
+                        }}
+                        aria-label={`Go to slide ${i + 1}`}
+                    />
+                ))}
+            </div>
+        </div>
+    );
 };
 
-// Main Component
+/* =========================
+   MAIN SECTION
+   ========================= */
 export default function MeetTheTeam() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
+    const ref = useRef(null);
+    const inView = useInView(ref, { once: true, margin: "-80px" });
 
-  return (
-    <section className="bg-white py-16 md:py-20" id="our-team">
-      <div className="max-w-6xl mx-auto px-4 md:px-8">
+    return (
+        <section id="our-team" className="py-16 md:py-20 bg-white">
+            <div className="max-w-6xl mx-auto px-4 md:px-8">
+                <motion.header
+                    ref={ref}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={inView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ duration: 0.6 }}
+                    className="text-center max-w-2xl mx-auto mb-12"
+                >
+                    <span
+                        className="text-sm font-semibold uppercase tracking-wider inline-flex items-center gap-1"
+                        style={{ color: COLORS.primary }}
+                    >
+                        <Briefcase size={16} /> Our Core Team
+                    </span>
+                    <h2 className="text-3xl md:text-4xl font-bold mt-3" style={{ color: COLORS.primary }}>
+                        Meet the Innovators Behind the Work
+                    </h2>
+                    <p className="text-gray-600 text-sm md:text-base mt-3">
+                        Experienced professionals delivering scalable digital solutions.
+                    </p>
+                </motion.header>
 
-        {/* Header */}
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 15 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5 }}
-          className="text-center max-w-2xl mx-auto mb-10"
-        >
-          <span
-            className="text-sm font-semibold uppercase tracking-wider flex items-center justify-center gap-1"
-            style={{ color: NAVY_BLUE }}
-          >
-            <Briefcase size={16} /> OUR CORE TEAM
-          </span>
-
-          <h2
-            className="text-3xl md:text-4xl font-bold mt-2"
-            style={{ color: NAVY_BLUE }}
-          >
-            Meet the Innovators Behind the Code
-          </h2>
-
-          <p className="text-gray-600 text-sm md:text-base mt-2">
-            A dynamic team delivering modern web, mobile, and cloud solutions.
-          </p>
-        </motion.div>
-
-        <TeamCarousel members={teamData} />
-      </div>
-    </section>
-  );
+                <TeamCarousel members={teamData} />
+            </div>
+        </section>
+    );
 }

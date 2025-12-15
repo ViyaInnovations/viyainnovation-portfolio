@@ -1,13 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import {
-    Briefcase,
-    TrendingUp,
-    Monitor,
-    ArrowRight,
-    Send,
-    Sparkles,
-} from "lucide-react";
+import { Briefcase, TrendingUp, Monitor, ArrowRight, Send, Sparkles } from "lucide-react";
 
 // --- Colors ---
 const NAVY_BLUE = "#0b132b";
@@ -21,8 +14,8 @@ const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
         opacity: 1,
-        transition: { delayChildren: 0.3, staggerChildren: 0.2 }
-    }
+        transition: { delayChildren: 0.3, staggerChildren: 0.2 },
+    },
 };
 
 const itemVariants = {
@@ -30,8 +23,8 @@ const itemVariants = {
     visible: {
         y: 0,
         opacity: 1,
-        transition: { type: "spring", stiffness: 100 }
-    }
+        transition: { type: "spring", stiffness: 100 },
+    },
 };
 
 const imageVariants = {
@@ -39,23 +32,22 @@ const imageVariants = {
     center: {
         opacity: 1,
         scale: 1,
-        transition: { duration: 0.8, ease: "backOut" }
+        transition: { duration: 0.8, ease: "backOut" },
     },
     exit: {
         opacity: 0,
         scale: 0.95,
-        transition: { duration: 0.4 }
-    }
+        transition: { duration: 0.4 },
+    },
 };
 
 // --- Images ---
 const heroImages = [
-    { src: '/n.1.jpeg', alt: 'Abstract digital data flow concept' },
-    { src: '/n.2.jpeg', alt: 'Creative professional workspace design' },
-    { src: '/n.3.jpeg', alt: 'Business growth strategy visual' },
-    { src: '/n.4.jpeg', alt: 'Diverse remote team collaboration' },
-        { src: '/n.5.jpeg', alt: 'Diverse remote team collaboration' },
-
+    { src: "/n.1.jpeg", alt: "Abstract digital data flow concept" },
+    { src: "/n.2.jpeg", alt: "Creative professional workspace design" },
+    { src: "/n.3.jpeg", alt: "Business growth strategy visual" },
+    { src: "/n.4.jpeg", alt: "Diverse remote team collaboration" },
+    { src: "/n.5.jpeg", alt: "Diverse remote team collaboration" },
 ];
 
 export default function Hero() {
@@ -72,7 +64,7 @@ export default function Hero() {
     const currentImage = heroImages[currentImageIndex];
 
     return (
-        <section id='hero' className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-32">
+        <section id="hero" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-32">
             <motion.div
                 variants={containerVariants}
                 initial="hidden"
@@ -81,7 +73,6 @@ export default function Hero() {
             >
                 {/* LEFT CONTENT */}
                 <div className="lg:col-span-7">
-
                     <motion.div
                         variants={itemVariants}
                         className="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider"
@@ -98,11 +89,9 @@ export default function Hero() {
                         We engineer <strong>memorable brands</strong> and high-performance digital platforms.
                     </motion.h1>
 
-                    <motion.p
-                        variants={itemVariants}
-                        className="mt-5 text-base md:text-lg text-gray-600 max-w-lg"
-                    >
-                        Your dedicated partner in Strategic Branding, Enterprise Web Development, Motion Graphics, and Targeted Digital Marketing—delivering measurable impact worldwide.
+                    <motion.p variants={itemVariants} className="mt-5 text-base md:text-lg text-gray-600 max-w-lg">
+                        Your dedicated partner in Strategic Branding, Enterprise Web Development, Motion Graphics, and
+                        Targeted Digital Marketing—delivering measurable impact worldwide.
                     </motion.p>
 
                     {/* CTAs */}
@@ -113,8 +102,8 @@ export default function Hero() {
                             href="#contact"
                             className="inline-flex items-center justify-center gap-2 text-white px-5 py-3 rounded-xl text-sm font-semibold shadow-lg transition duration-200"
                             style={{ backgroundColor: NAVY_BLUE }}
-                            onMouseEnter={e => e.currentTarget.style.backgroundColor = NAVY_HOVER_BG}
-                            onMouseLeave={e => e.currentTarget.style.backgroundColor = NAVY_BLUE}
+                            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = NAVY_HOVER_BG)}
+                            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = NAVY_BLUE)}
                         >
                             <Send size={16} />
                             Start Your Project
@@ -130,7 +119,10 @@ export default function Hero() {
                     </motion.div>
 
                     {/* Stats */}
-                    <motion.div variants={itemVariants} className="mt-10 pt-6 border-t border-gray-100 grid grid-cols-3 gap-6">
+                    <motion.div
+                        variants={itemVariants}
+                        className="mt-10 pt-6 border-t border-gray-100 grid grid-cols-3 gap-6"
+                    >
                         <div className="flex items-start gap-3 p-3">
                             <Briefcase size={18} style={{ color: NAVY_BLUE }} />
                             <div>
@@ -165,7 +157,6 @@ export default function Hero() {
                     className="lg:col-span-5 block"
                 >
                     <div className="w-full h-[380px] md:h-[450px] lg:h-[500px] rounded-3xl overflow-hidden shadow-2xl relative">
-
                         <AnimatePresence initial={false} mode="wait">
                             <motion.img
                                 key={currentImageIndex}
@@ -187,8 +178,8 @@ export default function Hero() {
                                     onClick={() => setCurrentImageIndex(index)}
                                     className="h-2.5 rounded-full transition-all duration-300"
                                     style={{
-                                        backgroundColor: index === currentImageIndex ? NAVY_BLUE : 'rgba(11,19,43,0.4)',
-                                        width: index === currentImageIndex ? '20px' : '10px'
+                                        backgroundColor: index === currentImageIndex ? NAVY_BLUE : "rgba(11,19,43,0.4)",
+                                        width: index === currentImageIndex ? "20px" : "10px",
                                     }}
                                 />
                             ))}
