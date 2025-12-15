@@ -125,19 +125,6 @@ export default function NavBar() {
                 <Globe size={16} />
                 EN <ChevronDown size={14} />
             </button>
-            
-            <motion.a 
-              whileHover={{ scale: 1.05, boxShadow: NAVY_SHADOW }} 
-              whileTap={{ scale: 0.95 }}
-              href="#quote"
-              className="ml-4 inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full text-white text-sm font-semibold shadow-lg transition duration-200 ease-in-out"
-              style={{ backgroundColor: NAVY_BLUE }}
-              onMouseEnter={e => e.currentTarget.style.backgroundColor = NAVY_HOVER}
-              onMouseLeave={e => e.currentTarget.style.backgroundColor = NAVY_BLUE}
-            >
-              <Send size={16} />
-              Get a Quote
-            </motion.a>
           </nav>
 
           {/* Mobile Menu Button (No changes needed) */}
@@ -206,22 +193,6 @@ export default function NavBar() {
                 </motion.a>
               ))}
             </nav>
-
-            {/* Mobile CTA */}
-            <motion.a 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: navLinks.length * 0.1 + 0.2 }}
-              href="#quote"
-              onClick={toggleMenu}
-              className="mt-10 inline-flex items-center justify-center gap-2 w-full px-6 py-4 rounded-xl text-white text-lg font-semibold shadow-xl transition duration-200 ease-in-out"
-              style={{ backgroundColor: NAVY_BLUE }}
-              onMouseEnter={e => e.currentTarget.style.backgroundColor = NAVY_HOVER}
-              onMouseLeave={e => e.currentTarget.style.backgroundColor = NAVY_BLUE}
-            >
-              <Send size={20} />
-              Get a Quote Now
-            </motion.a>
             
             {/* Contact Info (Less prominent) */}
             <p className="mt-8 text-sm text-center text-gray-500">
