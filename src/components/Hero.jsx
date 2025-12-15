@@ -47,7 +47,7 @@ const heroImages = [
     { src: "/n.2.jpeg", alt: "Creative professional workspace design" },
     { src: "/n.3.jpeg", alt: "Business growth strategy visual" },
     { src: "/n.4.jpeg", alt: "Diverse remote team collaboration" },
-    { src: "/n.5.jpeg", alt: "Diverse remote team collaboration" },
+    { src: "/n.5.png", alt: "Diverse remote team collaboration" },
 ];
 
 export default function Hero() {
