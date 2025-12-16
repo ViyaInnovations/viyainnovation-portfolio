@@ -135,8 +135,8 @@ export default function MeetTheTeam() {
     const inView = useInView(ref, { once: true, margin: "-80px" });
 
     return (
-        <section id="our-team" className="py-16 md:py-20 bg-white">
-            <div className="max-w-6xl mx-auto px-4 md:px-8">
+        <section id="our-team" className="py-10 md:py-12 bg-white">
+            <div className="max-w-9xl mx-auto px-4">
                 <motion.header
                     ref={ref}
                     initial={{ opacity: 0, y: 20 }}

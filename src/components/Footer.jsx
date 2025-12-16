@@ -121,7 +121,7 @@ export default function Footer() {
                             <motion.li variants={footerVariants} className="flex items-start gap-2 sm:gap-3">
                                 <MapPin size={16} className="shrink-0 mt-0.5 sm:mt-1" style={{ color: ACCENT_COLOR }} />
                                 <span className="text-gray-300 leading-relaxed">
-                                   Breeze Arcade First Floor, Kottoli, Chevayur Post, Kozhikode, Kerala, India
+                                   Breeze Arcade, First Floor, Kottoli, Chevayur Post, Kozhikode, Kerala, India
                                 </span>
                             </motion.li>
                         </ul>

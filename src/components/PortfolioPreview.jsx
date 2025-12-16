@@ -144,22 +144,7 @@ export default function PortfolioPreview() {
                         <ProjectCard key={project.id} project={project} />
                     ))}
                 </motion.div>
-
-                {/* Button */}
-                <div className="mt-12 text-center">
-                    <motion.a
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.98 }}
-                        href="/work"
-                        className="inline-flex items-center gap-2 text-white px-8 py-3 rounded-xl text-md font-semibold shadow-lg transition duration-200"
-                        style={{ backgroundColor: NAVY_BLUE }}
-                        onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = NAVY_HOVER_BG)}
-                        onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = NAVY_BLUE)}
-                    >
-                        <Target size={20} />
-                        View All Projects
-                    </motion.a>
-                </div>
+              
             </div>
         </section>
     );
