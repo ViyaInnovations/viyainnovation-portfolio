@@ -98,7 +98,9 @@ export default function NavBar() {
                 className="w-10 h-10 object-contain" // FIXED SIZE
             />
             <div>
-              <h1 className="text-xl font-extrabold text-gray-900 tracking-tight transition-colors duration-200 group-hover:text-gray-700">ViyaInnovations</h1>
+<span className="text-xl font-extrabold text-gray-900 tracking-tight transition-colors duration-200 group-hover:text-gray-700">
+  ViyaInnovations
+</span>
               <p className="text-xs font-medium transition-colors duration-200" style={{ color: NAVY_BLUE }}>Branding • Web • Motion</p>
             </div>
           </a>
