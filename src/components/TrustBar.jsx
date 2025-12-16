@@ -46,7 +46,7 @@ export default function TrustBar() {
 
           {/* Track */}
           <motion.div
-            className="flex items-center gap-x-12 md:gap-x-16 lg:gap-x-20 w-max"
+            className="flex items-center gap-x-1 md:gap-x-6 lg:gap-x-10 w-max"
             variants={scrollVariants}
             animate="animate"
           >
