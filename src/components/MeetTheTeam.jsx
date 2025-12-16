@@ -1,9 +1,9 @@
-import React, { useRef, useEffect } from "react";
-import teamData from "../data/teamData.json";
+import React, { useRef, useEffect,useState,useCallback,an } from "react";
+
 import { motion, useInView } from "framer-motion";
 import { Linkedin, Briefcase } from "lucide-react";
 import teamData from "../data/teamData.json"; 
-
+import { AnimatePresence } from "framer-motion";
 // --- Color Definitions ---
 const COLORS = {
     primary: "#0b132b",
