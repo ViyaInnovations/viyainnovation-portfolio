@@ -114,11 +114,8 @@ export default function Contact() {
               <div className="mt-3 flex items-start gap-3 text-sm text-gray-600">
                 <MapPin size={16} aria-hidden="true" />
                 <span itemProp="streetAddress">
-                  Breeze Arcade First Floor, Kottoli, Chevayur Post
+                  Breeze Arcade, First Floor, Kottoli, Chevayur Post, Kozhikode, Kerala, India
                 </span>
-                , <span itemProp="addressLocality">Kozhikode</span>,{" "}
-                <span itemProp="addressRegion">Kerala</span>,{" "}
-                <span itemProp="addressCountry">India</span>
               </div>
             </article>
 
