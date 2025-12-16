@@ -1,94 +1,94 @@
 import React from 'react';
 import { motion } from "framer-motion";
 
-// --- Custom Color Definitions (Re-used for consistency) ---
+// --- Custom Color Definitions ---
 const NAVY_BLUE = "#0b132b";
 
-// --- Data: Client Logo Paths ---
-// Since the logos are in public/trust/1.png to 10.png, we generate the paths.
-const clientLogos = Array.from({ length: 5}, (_, i) => ({
-    id: i + 1,
-    src: `/trust/${i + 1}.jpg`,
-    alt: `Client Logo ${i + 1}`,
+// --- Client Logos ---
+const clientLogos = Array.from({ length: 5 }, (_, i) => ({
+  id: i + 1,
+  src: `/trust/${i + 1}.jpg`,
+  alt: `Trusted brand logo ${i + 1}`, // ✅ Improved SEO alt
 }));
 
-// We duplicate the list to ensure seamless, continuous scrolling
+// Duplicate for seamless scroll
 const duplicatedLogos = [...clientLogos, ...clientLogos];
 
-// --- Framer Motion Variants for Continuous Scroll ---
+// --- Framer Motion Variants ---
 const scrollVariants = {
-    animate: {
-        // Calculate the total width of the logos * number of copies (2)
-        // We use translate X of -50% to move exactly half the track length (the original list)
-        x: ['0%', '-50%'], 
-        transition: {
-            x: {
-                ease: "linear",
-                duration: 45, // Adjust duration to control speed
-                repeat: Infinity,
-            },
-        },
+  animate: {
+    x: ['0%', '-50%'],
+    transition: {
+      x: {
+        ease: "linear",
+        duration: 45,
+        repeat: Infinity,
+      },
     },
+  },
 };
 
-
 export default function TrustBar() {
-    return (
-        <section className="bg-white py-12 md:py-16 overflow-hidden">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                
-                {/* Header Text */}
-                <h2 className="text-center text-sm md:text-base font-semibold uppercase tracking-widest text-gray-500 mb-8">
-                    Trusted by industry leaders worldwide
-                </h2>
+  return (
+    <section
+      aria-labelledby="trust-heading"
+      className="bg-white py-12 md:py-16 overflow-hidden"
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-                {/* --- Logo Scroller Container --- */}
-                <div className="relative w-full">
-                    {/* Fading Gradients (Masks the start and end of the scroll) */}
-                    <div className="absolute inset-y-0 left-0 w-24 z-10 pointer-events-none" 
-                         style={{ background: 'linear-gradient(to right, white, rgba(255, 255, 255, 0))' }}
-                    />
-                    <div className="absolute inset-y-0 right-0 w-24 z-10 pointer-events-none" 
-                         style={{ background: 'linear-gradient(to left, white, rgba(255, 255, 255, 0))' }}
-                    />
+        {/* ✅ Semantic Section Heading */}
+        <h2
+          id="trust-heading"
+          className="text-center text-sm md:text-base font-semibold uppercase tracking-widest text-gray-500 mb-8"
+        >
+          Trusted by industry leaders worldwide
+        </h2>
 
-                    {/* Scrolling Track */}
-                    <motion.div
-                        className="flex flex-row flex-nowrap w-[200%]" // Double width to hold duplicated list
-                        variants={scrollVariants}
-                        animate="animate"
-                    >
-                        {duplicatedLogos.map((logo, index) => (
-                            <div 
-                                key={index} 
-                                className="shrink-0 flex items-center justify-center w-[10%] px-6 h-16 md:h-20"
-                                // Since we have 10 original logos, each takes 10% of the 100% width
-                            >
-                                <img
-                                    src={logo.src}
-                                    alt={logo.alt}
-                                    // Tailwind classes to style the logos
-                                    className="
-  max-h-full 
-  max-w-full 
-  object-contain 
-  filter 
-  grayscale 
-  hover:grayscale-0 
-  transition-all 
-  duration-300
-"
+        {/* Logo Marquee */}
+        <div className="relative w-full" aria-hidden="true">
+          {/* Gradient Masks */}
+          <div
+            className="absolute inset-y-0 left-0 w-24 z-10 pointer-events-none"
+            style={{ background: 'linear-gradient(to right, white, rgba(255, 255, 255, 0))' }}
+          />
+          <div
+            className="absolute inset-y-0 right-0 w-24 z-10 pointer-events-none"
+            style={{ background: 'linear-gradient(to left, white, rgba(255, 255, 255, 0))' }}
+          />
 
-                                    style={{ 
-                                        // Max width set to prevent stretching on screens larger than needed
-                                        maxWidth: '120px' 
-                                    }}
-                                />
-                            </div>
-                        ))}
-                    </motion.div>
-                </div>
-            </div>
-        </section>
-    );
+          {/* Scrolling Track */}
+          <motion.div
+            className="flex flex-row flex-nowrap w-[200%]"
+            variants={scrollVariants}
+            animate="animate"
+          >
+            {duplicatedLogos.map((logo, index) => (
+              <div
+                key={index}
+                className="shrink-0 flex items-center justify-center w-[10%] px-6 h-16 md:h-20"
+              >
+                <img
+                  src={logo.src}
+                  alt={logo.alt}
+                  loading="lazy"               // ✅ Performance SEO
+                  decoding="async"             // ✅ Rendering optimization
+                  className="
+                    max-h-full
+                    max-w-full
+                    object-contain
+                    filter
+                    grayscale
+                    hover:grayscale-0
+                    transition-all
+                    duration-300
+                  "
+                  style={{ maxWidth: '120px' }}
+                />
+              </div>
+            ))}
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
 }
