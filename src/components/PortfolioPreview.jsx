@@ -59,12 +59,12 @@ const ProjectCard = ({ project }) => (
             filter: "contrast(1.05) brightness(1.03)",
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-linear-to-t from-black/20 to-transparent pointer-events-none" />
       </div>
 
       {/* Content Section - Flex Grow ensures footer stays at bottom */}
-      <div className="p-5 flex flex-col flex-grow">
-        <div className="flex-grow">
+      <div className="p-5 flex flex-col grow">
+        <div className="grow">
           <span className="text-xs font-semibold uppercase tracking-widest text-gray-500 mb-1 block">
             {project.client} / {project.focus}
           </span>
