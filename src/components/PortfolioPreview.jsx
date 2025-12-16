@@ -1,14 +1,13 @@
 import React, { useRef } from "react";
 import portfolioData from "../data/portfolioData.json";
 import { motion, useInView } from "framer-motion";
-import { ArrowRight, Zap, Target } from "lucide-react";
+import { ArrowRight, Zap } from "lucide-react";
 import useEmblaCarousel from "embla-carousel-react";
 
 /* -----------------------------------
    COLORS
 ----------------------------------- */
 const NAVY_BLUE = "#0b132b";
-const NAVY_HOVER_BG = "#1e293b";
 const NAVY_ACCENT_LIGHT = "#e0f2f1";
 
 /* -----------------------------------
@@ -39,66 +38,62 @@ const ProjectCard = ({ project }) => (
     variants={projectVariants}
     itemScope
     itemType="https://schema.org/CreativeWork"
+    className="h-full" // Ensure motion div takes full height
   >
     <a
       href={`/work/${project.linkSlug}`}
-      className="group block rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 bg-white border border-gray-100"
+      className="group flex flex-col h-full rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 bg-white border border-gray-100"
       aria-label={`View project ${project.title}`}
       itemProp="url"
     >
-      <div className="relative overflow-hidden h-64 md:h-72 rounded-xl bg-gray-100">
+      {/* Image Section - Fixed Height */}
+      <div className="relative overflow-hidden h-64 shrink-0 rounded-t-xl bg-gray-100">
         <img
           src={project.imagePath}
           alt={project.title}
           loading="lazy"
           itemProp="image"
-          className="
-            w-full h-full object-cover 
-            transition-all duration-500 
-            group-hover:scale-[1.05] 
-            group-hover:brightness-110 
-            group-hover:saturate-125
-          "
+          className="w-full h-full object-cover transition-all duration-500 group-hover:scale-[1.05] group-hover:brightness-110 group-hover:saturate-125"
           style={{
             imageRendering: "high-quality",
             filter: "contrast(1.05) brightness(1.03)",
           }}
         />
-
-        <div
-          className="absolute inset-0 bg-linear-to-t from-black/20 to-transparent pointer-events-none"
-          aria-hidden="true"
-        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
       </div>
 
-      <div className="p-5">
-        <span className="text-xs font-semibold uppercase tracking-widest text-gray-500 mb-1 block">
-          {project.client} / {project.focus}
-        </span>
+      {/* Content Section - Flex Grow ensures footer stays at bottom */}
+      <div className="p-5 flex flex-col flex-grow">
+        <div className="flex-grow">
+          <span className="text-xs font-semibold uppercase tracking-widest text-gray-500 mb-1 block">
+            {project.client} / {project.focus}
+          </span>
 
-        <h3
-          className="text-xl md:text-2xl font-bold mb-3"
-          style={{ color: NAVY_BLUE }}
-          itemProp="name"
-        >
-          {project.title}
-        </h3>
-
-        <div
-          className="flex items-center gap-2 p-1.5 rounded-md max-w-max"
-          style={{ backgroundColor: NAVY_ACCENT_LIGHT }}
-        >
-          <Zap size={16} style={{ color: NAVY_BLUE }} aria-hidden="true" />
-          <p
-            className="text-sm font-medium"
+          <h3
+            className="text-xl font-bold mb-3 leading-tight"
             style={{ color: NAVY_BLUE }}
-            itemProp="description"
+            itemProp="name"
           >
-            {project.result}
-          </p>
+            {project.title}
+          </h3>
+
+          <div
+            className="flex items-start gap-2 p-2 rounded-md"
+            style={{ backgroundColor: NAVY_ACCENT_LIGHT }}
+          >
+            <Zap size={16} className="mt-0.5 shrink-0" style={{ color: NAVY_BLUE }} aria-hidden="true" />
+            <p
+              className="text-sm font-medium leading-snug"
+              style={{ color: NAVY_BLUE }}
+              itemProp="description"
+            >
+              {project.result}
+            </p>
+          </div>
         </div>
 
-        <div className="mt-4 pt-3 border-t border-gray-100">
+        {/* Footer - Always at the bottom */}
+        <div className="mt-6 pt-3 border-t border-gray-100">
           <span
             className="inline-flex items-center gap-2 text-sm font-semibold"
             style={{ color: NAVY_BLUE }}
@@ -118,7 +113,6 @@ const ProjectCard = ({ project }) => (
 export default function PortfolioPreview() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.1 });
-
   const [emblaRef] = useEmblaCarousel({ loop: true, align: "start" });
 
   return (
@@ -162,7 +156,7 @@ export default function PortfolioPreview() {
         >
           <div className="flex gap-5">
             {portfolioData.map((project) => (
-              <div key={project.id} className="min-w-[85%]">
+              <div key={project.id} className="min-w-[85%] flex">
                 <ProjectCard project={project} />
               </div>
             ))}
@@ -175,15 +169,12 @@ export default function PortfolioPreview() {
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
+          className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 items-stretch"
         >
           {portfolioData.slice(0, 4).map((project) => (
             <ProjectCard key={project.id} project={project} />
           ))}
         </motion.div>
-
-        {/* CTA */}
-    
       </div>
     </section>
   );
