@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 
 // --- Client Logos ---
-const clientLogos = Array.from({ length: 5 }, (_, i) => ({
+const clientLogos = Array.from({ length: 13 }, (_, i) => ({
   id: i + 1,
   src: `/trust/${i + 1}.jpg`,
   alt: `Trusted brand logo ${i + 1}`,

@@ -1,12 +1,12 @@
 [
-    {
+     {
         "id": 1,
-        "name": "Stalin",
-        "title": "Managing Director",
-        "specialty": "Business Strategy & Operations Leadership",
-        "bio": "Leads overall business direction with a focus on strategic growth, operational efficiency, and long-term client partnerships.",
-        "imagePath": "/team/2.jpeg",
-        "linkedin": "https://www.linkedin.com/in/stalin/"
+        "name": "Jiyad",
+        "title": "Digital Marketing Specialist",
+        "specialty": "SEO, Social Media & Performance Marketing",
+        "bio": "Drives measurable growth through data-driven digital marketing strategies, including SEO, social media campaigns, and performance-focused content marketing.",
+        "imagePath": "/team/jiyad.jpeg",
+        "linkedin": ""
     },
     {
         "id": 2,
@@ -14,7 +14,7 @@
         "title": "Lead Full-Stack Architect",
         "specialty": "Web & Application Development",
         "bio": "Specializes in scalable, high-performance web applications using React, TypeScript, and modern headless architectures.",
-        "imagePath": "/team/dilaksh.JPG",
+        "imagePath": "/team/dilaksh.jpeg",
         "linkedin": "https://www.linkedin.com/in/kamalathasan-dilakshan/"
     },
     {
@@ -32,7 +32,7 @@
         "title": "Video Editor",
         "specialty": "Video Editing & Motion Graphics",
         "bio": "Creates engaging, high-quality video content with a strong focus on storytelling, pacing, and visual consistency for digital platforms and brand campaigns.",
-        "imagePath": "/team/2.jpeg",
+        "imagePath": "/team/akshay.jpeg",
         "linkedin": "https://linkedin.com/in/bencarter"
     },
 
@@ -42,7 +42,7 @@
         "title": "Digital Marketing Specialist",
         "specialty": "SEO, Social Media & Performance Marketing",
         "bio": "Drives measurable growth through data-driven digital marketing strategies, including SEO, social media campaigns, and performance-focused content marketing.",
-        "imagePath": "/team/2.jpeg",
+        "imagePath": "/team/adwaith.jpeg",
         "linkedin": "https://www.linkedin.com/in/adhwaith-kurup-9b709a385/"
     }
 ]
