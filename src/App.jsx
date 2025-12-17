@@ -17,7 +17,7 @@ function App() {
   });
   return (
     <>
-
+{/* all completed */}
       <NavBar />
       <Hero />
       <TrustBar />
