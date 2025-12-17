@@ -49,10 +49,8 @@ const imageVariants = {
 
 // --- Images ---
 const heroImages = [
-  { src: "/n.1.jpeg", alt: "Abstract digital data flow concept" },
-  { src: "/n.2.jpeg", alt: "Creative professional workspace design" },
-  { src: "/n.3.jpeg", alt: "Business growth strategy visual" },
-  { src: "/n.4.jpeg", alt: "Diverse remote team collaboration" },
+  { src: "/portfolio/n.1.jpeg", alt: "Abstract digital data flow concept" },
+  { src: "/portfolio/n.4.jpeg", alt: "Creative professional workspace design" }
 ];
 
 export default function Hero() {
