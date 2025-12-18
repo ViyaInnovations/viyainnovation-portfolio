@@ -127,7 +127,7 @@ export default function PortfolioPreview() {
         {/* Header */}
         <header className="max-w-4xl mx-auto text-center mb-12">
           <span
-            className="text-sm font-semibold uppercase tracking-wider mb-2 inline-block"
+            className="text-sm uppercase tracking-wider mb-2 inline-block "
             style={{ color: NAVY_BLUE }}
           >
             Our Best Work
@@ -135,14 +135,14 @@ export default function PortfolioPreview() {
 
           <h2
             id="portfolio-heading"
-            className="text-3xl md:text-5xl font-extrabold mb-4"
+            className="text-3xl md:text-3xl mb-4 letter-spacing: -0.02em DM Sans sans-serif"
             style={{ color: NAVY_BLUE }}
             itemProp="name"
           >
             Success Built on Measurable Results
           </h2>
 
-          <p className="text-gray-600 text-base md:text-lg" itemProp="description">
+          <p className="to-black-600 text-base md:text-lg DM Sans sans-serif" itemProp="description">
             We believe in showing, not telling. Explore our featured case studies
             showcasing strategy, design, tech, and impact.
           </p>

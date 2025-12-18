@@ -69,7 +69,7 @@ export default function Hero() {
     <section
       id="hero"
       aria-labelledby="hero-heading"
-      className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-32"
+      className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 "
     >
       <motion.div
         variants={containerVariants}
@@ -92,7 +92,7 @@ export default function Hero() {
           <motion.h1
             id="hero-heading"
             variants={itemVariants}
-            className="text-4xl md:text-5xl font-extrabold leading-tight text-gray-900 tracking-tighter"
+            className="text-3xl md:text-2xl leading-tight text-gray-900 tracking-tighter letter-spacing: -0.02em DM Sans sans-serif"
           >
             Creative Branding & Web Development Agency for High-Growth Businesses
           </motion.h1>
@@ -175,7 +175,7 @@ export default function Hero() {
           transition={{ delay: 0.4 }}
           className="lg:col-span-5 block"
         >
-          <div className="w-full h-[380px] md:h-[450px] lg:h-[500px] rounded-3xl overflow-hidden shadow-2xl relative">
+          <div className="w-full h-[380px] md:h-[450px] lg:h-[500px] rounded-3xl overflow-hidden shadow-2xl relative ">
             <AnimatePresence initial={false} mode="wait">
               <motion.img
                 key={currentImageIndex}
@@ -185,7 +185,7 @@ export default function Hero() {
                 initial="enter"
                 animate="center"
                 exit="exit"
-                className="absolute inset-0 w-full h-full object-cover"
+                className="absolute inset-0 w-full h-full object-cover pt-7 "
               />
             </AnimatePresence>
           </div>

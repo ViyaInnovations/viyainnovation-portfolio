@@ -99,7 +99,7 @@ export default function NavBar() {
             />
             <div>
 <span className="text-xl font-extrabold text-gray-900 tracking-tight transition-colors duration-200 group-hover:text-gray-700">
-  ViyaInnovations
+  Viya Innovations
 </span>
               <p className="text-xs font-medium transition-colors duration-200" style={{ color: NAVY_BLUE }}>Branding • Web • Motion</p>
             </div>

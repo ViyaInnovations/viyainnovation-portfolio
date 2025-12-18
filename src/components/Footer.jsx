@@ -64,7 +64,7 @@ export default function Footer() {
                             />
                         </motion.div>
                         <div className="font-extrabold text-xl sm:text-2xl tracking-tight mb-3 sm:mb-4" itemProp="name">
-                            ViyaInnovations
+                            Viya Innovations
                         </div>
                         <motion.p 
                             variants={footerVariants} 
@@ -166,7 +166,7 @@ export default function Footer() {
                 {/* Bottom Section */}
                 <div className="flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-6 text-xs sm:text-sm">
                     <motion.div variants={footerVariants} className="text-gray-500 text-center sm:text-left">
-                        © {currentYear} ViyaInnovations. All rights reserved.
+                        © {currentYear} Viya Innovations. All rights reserved.
                     </motion.div>
                     
                     <motion.nav variants={footerVariants} className="flex flex-col sm:flex-row gap-3 sm:gap-6 text-gray-500 text-center" aria-label="Footer Legal Links">

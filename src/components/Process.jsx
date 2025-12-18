@@ -90,7 +90,7 @@ const MobileStep = ({ step, isLast }) => {
         <Icon size={20} className="text-white" />
       </div>
 
-      <div className="pl-6 pb-12">
+      <div className="pl-6 ">
         <h3
           className="text-xl font-bold mb-2"
           style={{ color: NAVY_BLUE }}
@@ -153,14 +153,14 @@ export default function Process() {
   return (
     <section
       id="process"
-      className="bg-white py-20 md:py-32"
+      className="bg-white py-20 md:py-3"
       aria-labelledby="process-heading"
       itemScope
       itemType="https://schema.org/HowTo"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Header */}
-        <header className="max-w-3xl mx-auto text-center mb-16 md:mb-20">
+        <header className="max-w-3xl mx-auto text-center mb-1 md:mb-">
           <span
             className="text-sm font-semibold uppercase tracking-wider mb-2 inline-block"
             style={{ color: NAVY_BLUE }}
@@ -170,7 +170,7 @@ export default function Process() {
 
           <h2
             id="process-heading"
-            className="text-4xl md:text-5xl font-extrabold mb-4"
+            className="text-3xl md:text-3xl mb-4 letter-spacing: -0.02em DM Sans sans-serif"
             style={{ color: NAVY_BLUE }}
             itemProp="name"
           >
@@ -216,7 +216,7 @@ export default function Process() {
 
         {/* CTA */}
         <div
-          className="mt-16 md:mt-20 text-center max-w-2xl mx-auto p-6 rounded-xl"
+          className="mt-16 md:mt-10 text-center max-w-2xl mx-auto p- rounded-xl"
           style={{ backgroundColor: NAVY_ACCENT_LIGHT }}
         >
           <p className="text-lg font-medium text-gray-700 flex items-center justify-center gap-3">
