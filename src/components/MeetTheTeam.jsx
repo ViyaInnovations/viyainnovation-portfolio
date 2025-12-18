@@ -102,7 +102,7 @@ const TeamCarousel = ({ members }) => {
 
     return (
         <div className="relative w-full">
-            <div className="relative min-h-[580px] sm:min-h-[500px] md:min-h-[400px] flex items-center justify-center overflow-visible">
+            <div className="relative min-h-[580px] sm:min-h-[500px] md:min-h-[300px] flex items-center justify-center overflow-visible">
                 <AnimatePresence mode="wait" initial={false}>
                     <motion.div
                         key={page}
