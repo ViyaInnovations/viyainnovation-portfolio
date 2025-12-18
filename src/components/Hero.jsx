@@ -69,7 +69,7 @@ export default function Hero() {
     <section
       id="hero"
       aria-labelledby="hero-heading"
-      className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 "
+      className="max-w-7xl mx-auto px-3 sm:px-6 py-3 lg:px-4"
     >
       <motion.div
         variants={containerVariants}
@@ -81,9 +81,10 @@ export default function Hero() {
         <div className="lg:col-span-7">
           <motion.div
             variants={itemVariants}
-            className="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider"
+            className="inline-flex max-w-7xl mx-auto px-5  sm:px-6 lg:px-8 items-center gap-2 mb-4 py-1 rounded-full text-xs font-semibold uppercase tracking-wider"
             style={{ backgroundColor: NAVY_ACCENT_LIGHT, color: NAVY_BLUE }}
           >
+            
             <Sparkles size={14} style={{ color: NAVY_BLUE }} />
             Full-Service Creative Studio for Global Brands
           </motion.div>
@@ -173,7 +174,7 @@ export default function Hero() {
           initial={{ opacity: 0, x: 30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.4 }}
-          className="lg:col-span-5 block"
+          className="lg:col-span-5 block pt-4"
         >
           <div className="w-full h-[380px] md:h-[450px] lg:h-[500px] rounded-3xl overflow-hidden shadow-2xl relative ">
             <AnimatePresence initial={false} mode="wait">
@@ -185,7 +186,7 @@ export default function Hero() {
                 initial="enter"
                 animate="center"
                 exit="exit"
-                className="absolute inset-0 w-full h-full object-cover pt-7 "
+                className="absolute inset-0 w-full h-full object-cover "
               />
             </AnimatePresence>
           </div>
