@@ -63,7 +63,7 @@ export default function Footer() {
                                 itemProp="logo"
                             />
                         </motion.div>
-                        <div className="font-extrabold text-xl sm:text-2xl tracking-tight mb-3 sm:mb-4" itemProp="name">
+                        <div className=" sm:text-2xl tracking-tight mb-3 sm:mb-4 font-size: 14px to-black-900 transition-colors duration-200 group-hover:text-gray-700 font-family:Arial sans-serif" itemProp="name">
                             Viya Innovations
                         </div>
                         <motion.p 
