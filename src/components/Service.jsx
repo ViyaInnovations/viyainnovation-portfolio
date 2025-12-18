@@ -89,14 +89,14 @@ const groupedServices = {
       icon: "Social Media Marketing",
     },
   ],
-  Events: [
-    {
-      title: "Events",
-      description:
-        "End-to-end event planning, management, and execution for memorable experiences.",
-      icon: "Events",
-    },
-  ],
+  // Events: [
+  //   {
+  //     title: "Events",
+  //     description:
+  //       "End-to-end event planning, management, and execution for memorable experiences.",
+  //     icon: "Events",
+  //   },
+  // ],
 };
 
 /* ---------------- ANIMATIONS ---------------- */
@@ -138,7 +138,7 @@ function ServiceCard({ service }) {
         {service.description}
       </p>
 
-      <div className="mt-6 pt-6 border-t border-gray-100">
+      <div className="mt-6 border-t border-gray-100">
         <span
           className="text-sm font-semibold"
           style={{ color: NAVY_BLUE }}
@@ -166,7 +166,7 @@ export default function Services() {
     <section
       id="service"
       aria-labelledby="services-heading"
-      className="min-h-screen pt-32 pb-20 bg-gray-50"
+      className="min-h-screen bg-gray-50"
     >
       <div className="container mx-auto px-4">
 
@@ -182,13 +182,13 @@ export default function Services() {
           {/* ✅ H2 instead of H1 */}
           <h2
             id="services-heading"
-            className="text-5xl md:text-6xl font-extrabold mb-6"
+            className="text-3xl letter-spacing: -0.02em DM Sans sans-serif mb-6"
             style={{ color: NAVY_BLUE }}
           >
             Our Digital Solutions
           </h2>
 
-          <p className="text-xl text-gray-600">
+          <p className="text-xl to-black-600 DM Sans sans-serif">
             We transform concepts into digital realities through strategy,
             creativity, and technology.
           </p>
@@ -205,11 +205,11 @@ export default function Services() {
                 className="max-w-4xl mx-auto mb-10 text-center"
               >
                 {/* ✅ H3 for category */}
-                <h3 className="text-3xl font-bold mb-2" style={{ color: NAVY_BLUE }}>
+                <h3 className="text-3xl mb-2 letter-spacing: -0.02em DM Sans sans-serif" style={{ color: NAVY_BLUE }}>
                   {categoryTitles[categoryKey]}
                 </h3>
 
-                <p className="text-lg text-gray-500">
+                <p className="text-lg to-black-500 DM Sans sans-serif">
                   {categoryKey === "Strategy" &&
                     "Laying the foundation for success with insights and positioning."}
                   {categoryKey === "Creative" &&

@@ -145,7 +145,7 @@ export default function MeetTheTeam() {
     return (
         <section 
             id="our-team" 
-            className="py-16 md:py-24 bg-white overflow-hidden" 
+            className="py-1 md:py- bg-white overflow-hidden" 
             aria-label="Meet the Team Section"
             itemScope 
             itemType="https://schema.org/Organization"
@@ -161,15 +161,15 @@ export default function MeetTheTeam() {
                     className="text-center max-w-2xl mx-auto mb-12 md:mb-16"
                 >
                     <span
-                        className="text-xs md:text-sm font-bold uppercase tracking-[0.2em] inline-flex items-center gap-2 mb-2"
+                        className="text-xs md:text-sm uppercase tracking-[0.2em] inline-flex items-center gap-2 mb-2"
                         style={{ color: COLORS.primary }}
                     >
                         <Briefcase size={14} /> Our Core Team
                     </span>
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight" style={{ color: COLORS.primary }}>
+                    <h2 className="text-3xl md:text-3xl lg:text-3xl letter-spacing: -0.02em DM Sans sans-serif " style={{ color: COLORS.primary }}>
                         Meet the Innovators
                     </h2>
-                    <p className="text-gray-500 text-sm md:text-base mt-4 font-medium">
+                    <p className="to-black-500 text-sm md:text-base mt-4 font-medium DM Sans', sans-serif">
                         A dedicated team of experts focused on delivering high-performance digital solutions.
                     </p>
                 </motion.header>

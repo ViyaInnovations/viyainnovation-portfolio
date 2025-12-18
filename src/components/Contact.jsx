@@ -24,7 +24,7 @@ export default function Contact() {
         >
           <h2
             id="contact-heading"
-            className="text-3xl md:text-4xl font-extrabold text-gray-900"
+            className="text-3xl md:text-3xl letter-spacing: -0.02em DM Sans sans-serif to-black-900"
             itemProp="name"
           >
             Let’s Build Something Together
