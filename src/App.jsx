@@ -1,34 +1,21 @@
-import NavBar from "./components/NavBar"
-import Hero from "./components/Hero"
-import Service from "./components/Service"
-import Footer from "./components/Footer"
-import TrustBar from "./components/TrustBar"
-import Process from "./components/Process"
-import PortfolioPreview from "./components/PortfolioPreview"
-import MeetTheTeam from "./components/MeetTheTeam"
-import useSEO from "../public/hooks/useSEO"
-import Contact from "./components/Contact"
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import ContactPage from "./pages/ContactPage";
+import Careers from "./pages/Careers";
+import AppDeveloperKerala from "./components/AppDeveloperKerala";
 function App() {
-
-  useSEO({
-    title: "ViyaInnovations | Branding, Web Development & Digital Marketing Agency",
-    description:
-      "ViyaInnovations is a creative digital agency offering branding, web development, SEO, motion design, digital marketing, photography, and event solutions.",
-  });
   return (
-    <>
-{/* all completed */}
-      <NavBar />
-      <Hero />
-      <TrustBar />
-      <Service />
-      <Process />
-      <PortfolioPreview />
-      <MeetTheTeam />
-      <Contact />
-      <Footer />
-    </>
-  )
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/contact" element={<ContactPage />} />
+        <Route path="/careers" element={<Careers />} />
+        <Route   path="/app-developer-kerala"   element={<AppDeveloperKerala />}
+/>
+
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
