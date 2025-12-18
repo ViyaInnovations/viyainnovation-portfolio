@@ -188,7 +188,7 @@ export default function Services() {
             Our Digital Solutions
           </h2>
 
-          <p className="text-xl to-black-600 DM Sans sans-serif">
+          <p className="text-lg to-black-500 DM Sans sans-serif">
             We transform concepts into digital realities through strategy,
             creativity, and technology.
           </p>
