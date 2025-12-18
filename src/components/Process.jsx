@@ -177,7 +177,7 @@ export default function Process() {
             Our Method to Guaranteed Success
           </h2>
 
-          <p className="text-lg text-gray-600" itemProp="description">
+          <p className="text-lg to-black-600 DM Sans sans-serif" itemProp="description">
             A transparent, structured, and high-impact process engineered to
             deliver results.
           </p>
