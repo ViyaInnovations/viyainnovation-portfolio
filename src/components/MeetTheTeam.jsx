@@ -169,7 +169,7 @@ export default function MeetTheTeam() {
                     <h2 className="text-3xl md:text-3xl lg:text-3xl letter-spacing: -0.02em DM Sans sans-serif " style={{ color: COLORS.primary }}>
                         Meet the Innovators
                     </h2>
-                    <p className="to-black-500 text-sm md:text-base mt-4 font-medium DM Sans', sans-serif">
+                    <p className="to-black-500 text-sm md:text-base mt-4 mb-16 sm:mb-0 font-medium DM Sans', sans-serif">
                         A dedicated team of experts focused on delivering high-performance digital solutions.
                     </p>
                 </motion.header>
