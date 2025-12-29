@@ -6,16 +6,18 @@ export default function useSEO({
   description,
   image = "https://www.viyainnovations.com/og-image.jpg",
   type = "website",
+  schema = null,
 }) {
   const location = useLocation();
   const url = `https://www.viyainnovations.com${location.pathname}`;
 
   useEffect(() => {
-    /* ---------- Title ---------- */
+    /* ---------------- TITLE ---------------- */
     if (title) document.title = title;
 
-    /* ---------- Meta helper ---------- */
+    /* ---------------- META HELPER ---------------- */
     const setMeta = (attr, attrValue, content) => {
+      if (!content) return;
       let meta = document.querySelector(`meta[${attr}='${attrValue}']`);
       if (!meta) {
         meta = document.createElement("meta");
@@ -25,25 +27,25 @@ export default function useSEO({
       meta.setAttribute("content", content);
     };
 
-    /* ---------- Description ---------- */
-    if (description) {
-      setMeta("name", "description", description);
-    }
+    /* ---------------- BASIC SEO ---------------- */
+    setMeta("name", "description", description);
+    setMeta("name", "robots", "index, follow");
 
-    /* ---------- Open Graph ---------- */
+    /* ---------------- OPEN GRAPH ---------------- */
     setMeta("property", "og:title", title);
     setMeta("property", "og:description", description);
     setMeta("property", "og:type", type);
     setMeta("property", "og:url", url);
     setMeta("property", "og:image", image);
+    setMeta("property", "og:site_name", "ViyaInnovations");
 
-    /* ---------- Twitter ---------- */
+    /* ---------------- TWITTER ---------------- */
     setMeta("name", "twitter:card", "summary_large_image");
     setMeta("name", "twitter:title", title);
     setMeta("name", "twitter:description", description);
     setMeta("name", "twitter:image", image);
 
-    /* ---------- Canonical ---------- */
+    /* ---------------- CANONICAL ---------------- */
     let link = document.querySelector("link[rel='canonical']");
     if (!link) {
       link = document.createElement("link");
@@ -51,5 +53,25 @@ export default function useSEO({
       document.head.appendChild(link);
     }
     link.href = url;
-  }, [title, description, image, type, url]);
+
+    /* ---------------- SCHEMA (JSON-LD) ---------------- */
+    let schemaTag = document.querySelector("script[data-schema='true']");
+    if (schemaTag) schemaTag.remove();
+
+    if (schema) {
+      const script = document.createElement("script");
+      script.type = "application/ld+json";
+      script.setAttribute("data-schema", "true");
+      script.innerHTML = JSON.stringify(schema);
+      document.head.appendChild(script);
+    }
+
+    /* ---------------- CLEANUP ---------------- */
+    return () => {
+      const existingSchema = document.querySelector(
+        "script[data-schema='true']"
+      );
+      if (existingSchema) existingSchema.remove();
+    };
+  }, [title, description, image, type, url, schema]);
 }
